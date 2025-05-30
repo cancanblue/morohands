@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* ヘッダー関係 */
+
+.header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 2% 0 2%;
+}
+
+
+
+.pc_nav ul {
+    display: flex;
+    gap: 60px;
+}
+
+.pc_nav li {
+    font-family: "kinto-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    width: 82px;
+    text-align: center;
+    letter-spacing: normal;
+}
+
+/* メインヴィジュアル */
+
+.main_visual {
+    margin-top: 40px;
+    position: relative;
+}
+
+.main_visual img {
+    width: 85%;
+    position: absolute;
+    right: 0;
+
+}
+
+.main_visual p {
+    position: absolute;
+    top: 210px;
+    left: 100px;
+    font-size: 60px;
+    line-height: 1.3;
+
+}

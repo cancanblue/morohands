@@ -1,14 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MORO HANDS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function (d) {
+            var config = {
+                kitId: 'gbk1cfb',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
 </head>
 
 <body>
+    <header>
+        <div class="header_wrap">
+            <h1><img src="images/logo.svg" alt="morohands" />
+            </h1>
 
+            <nav class="pc_nav">
+                <ul>
+                    <li>わたしのこと</li>
+                    <li>できること</li>
+                    <li>つくったもの</li>
+                    <li>連絡ください</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main_visual">
+        <img src="images/top_main2.jpg" alt="メイン画像">
+        <p>最近、どう？<br>
+            　困ってへん？</p>
+        <!-- ↑本当はこうではないと思うのですが、わかりません… -->
+    </div>
+
+    <main>
+        <section>
+
+        </section>
+    </main>
 </body>
 
 </html>
