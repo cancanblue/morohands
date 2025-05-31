@@ -26,7 +26,7 @@
     letter-spacing: normal;
 }
 
-/* メインヴィジュアル */
+/* メインビジュアル */
 
 .main_visual {
     margin-top: 40px;
@@ -34,17 +34,180 @@
 }
 
 .main_visual img {
+    display: block;
     width: 85%;
-    position: absolute;
-    right: 0;
+    margin-left: auto;
 
 }
 
 .main_visual p {
     position: absolute;
-    top: 210px;
-    left: 100px;
+    bottom: 10%;
+    left: 7%;
     font-size: 60px;
     line-height: 1.3;
 
 }
+
+.main_visual span {
+    padding-left: 58px;
+}
+
+/* キャッチコピー */
+.main_copy {
+    width: 85%;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-left: auto;
+}
+
+/* ↓　内　容　↓ */
+.content {
+    max-width: 1000px;
+    padding: 0 10px;
+    margin: 200px auto 0 auto;
+    position: relative;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 15px 0;
+}
+
+
+/* アンダーライン関係 */
+.underline {
+    margin: 10px 0 20px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.underline::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 1000%;
+    /* ↑この長さをどうしていいかわかりません… */
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+
+.underline_left {
+    margin: 0 0 30px 0;
+    position: relative;
+}
+
+.underline_left::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 1000%;
+    /* ↑この長さをどうしていいかわかりません… */
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+.underline_right {
+    margin: 0 0 30px 0;
+    position: relative;
+}
+
+.underline_right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    width: 1000%;
+    /* ↑この長さをどうしていいかわかりません… */
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+
+/* わたしのこと */
+
+#about {
+    display: flex;
+    margin-top: 230px;
+}
+
+#about h2 {
+    text-align: left;
+}
+
+#about img {
+    width: 100%;
+    height: auto;
+}
+
+#about div {
+    margin-left: 7%;
+}
+
+#about p {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 25px 0;
+}
+
+
+/* できること */
+
+#skill ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#skill li {
+    width: 28%;
+}
+
+#skill img {
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+}
+
+#skill button {
+
+    background-position: center;
+}
+
+
+
+/* 作ったもの */
+
+#work ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#work li {
+    width: 29%;
+}
+
+#work img {
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+}
+
+#work p {
+    text-align: center;
+}
+
+
+/* 連絡ください */

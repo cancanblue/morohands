@@ -23,6 +23,7 @@ li {
     /* font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
         "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; */
     font-family: "kinto-sans", sans-serif;
+    font-size: 14px;
     font-weight: 300;
     font-style: normal;
     letter-spacing: 0.1em;
@@ -49,4 +50,28 @@ img {
 
 h1 {
     width: 480px;
+}
+
+button {
+    width: 332px;
+    height: 42px;
+    background-image: url('../images/button.png');
+    display: block;
+    /* ブロック要素に */
+    margin: 50px auto;
+    /* 左右のマージンを自動で均等に */
+    border: none;
+    color: #330000;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    /* 影を追加 */
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    /* 右に3px、下に3px移動 */
 }
