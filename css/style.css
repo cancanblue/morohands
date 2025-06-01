@@ -26,6 +26,34 @@
     letter-spacing: normal;
 }
 
+.pc_nav a {
+    position: relative;
+}
+
+a::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 110%;
+    height: 2px;
+    background: #ffcc33;
+    bottom: 7px;
+    /*アンダーラインが現れ始める位置（aタグの下辺からの高さ）*/
+    opacity: 0;
+    /* visibility: hidden; */
+    transition: 0.1s;
+}
+
+a:hover::after {
+    /* visibility: visible; */
+    bottom: -2px;
+    /*アニメーションが止まる位置*/
+    opacity: 1;
+}
+
+
+
 /* メインビジュアル */
 
 .main_visual {
@@ -271,7 +299,7 @@ footer {
     cursor: pointer;
 }
 
-.pc_nav_footer ul {
+/* .pc_nav_footer ul {
     display: flex;
     gap: 60px;
 }
@@ -285,7 +313,7 @@ footer {
     text-align: center;
     letter-spacing: normal;
 
-}
+} */
 
 .pc_nav_copyright ul {
     display: flex;
