@@ -75,3 +75,7 @@ button:hover {
     transform: translate(3px, 3px);
     /* 右に3px、下に3px移動 */
 }
+
+small {
+    cursor: default;
+}

@@ -21,7 +21,6 @@
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
-    width: 82px;
     text-align: center;
     letter-spacing: normal;
 }
@@ -47,7 +46,7 @@ a::after {
 
 a:hover::after {
     /* visibility: visible; */
-    bottom: -2px;
+    bottom: -3px;
     /*アニメーションが止まる位置*/
     opacity: 1;
 }
@@ -96,13 +95,15 @@ a:hover::after {
     padding: 0 10px;
     margin: 200px auto 0 auto;
     position: relative;
+    /* box-sizing: border-box; */
 }
 
 .content_about {
-    max-width: 820px;
+    max-width: 850px;
     padding: 0 10px;
     margin: 230px auto 0 auto;
     position: relative;
+    /* box-sizing: border-box; */
 }
 
 .content_contact {
@@ -110,6 +111,7 @@ a:hover::after {
     padding: 0 10px;
     margin: 230px auto 0 auto;
     position: relative;
+    /* box-sizing: border-box; */
 }
 
 h2 {
@@ -137,7 +139,7 @@ h3 {
     position: absolute;
     bottom: -15px;
     left: 0;
-    width: calc(40% + (100vw - 100%) / 2);
+    width: calc(100% - 10px + (100vw - (100% * (100 / 40)))/2);
     height: 2px;
     background-color: #ffcc33;
 }
@@ -167,7 +169,7 @@ h3 {
     position: absolute;
     left: 0;
     bottom: -15px;
-    width: calc(100% + (100vw - 100%) / 2);
+    width: calc(100% - 10px + (100vw - 100%) / 2);
     height: 2px;
     background-color: #ffcc33;
 }
@@ -182,6 +184,7 @@ h3 {
 
 #about h2 {
     text-align: left;
+    width: 100%;
 }
 
 #about img {
@@ -255,6 +258,10 @@ h3 {
 
 /* 連絡ください */
 
+#contact {
+    padding: 0;
+}
+
 #contact div {
     margin-top: 40px;
     position: relative;
@@ -277,12 +284,11 @@ h3 {
     position: relative;
 } */
 
+
 #contact .underline_left::after {
     left: 0;
     width: 85%;
 }
-
-
 
 
 /* フッター */
@@ -315,16 +321,18 @@ footer {
 
 } */
 
-.pc_nav_copyright ul {
+.pc_nav_copyright {
     display: flex;
     gap: 27px;
-}
-
-.pc_nav_copyright li {
     font-family: "kinto-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 14px;
-
+    font-size: 16px;
     letter-spacing: normal;
+    align-items: center;
+}
+
+.pc_nav_copyright img {
+    width: 75px;
+    height: auto;
 }
