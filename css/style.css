@@ -108,24 +108,62 @@ a:hover::after {
 
 .content_contact {
     max-width: 100%;
-    padding: 0 10px;
+    /* padding: 0 10px; */
     margin: 230px auto 0 auto;
     position: relative;
     /* box-sizing: border-box; */
 }
 
-h2 {
-    font-size: 40px;
-    text-align: center;
+/* タイトル関係 */
+
+.title_large {
+    margin-top: 120px;
+    margin-left: 7%;
+    font-size: 68px;
+    font-family: "kinto-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    display: inline-block;
 }
 
-h3 {
+.title_large::before {
+    content: "";
+    position: absolute;
+    top: -3%;
+    /* 下に配置 */
+    left: -2%;
+    /* 横中央に配置 */
+    width: 80px;
+    /* 丸の直径 */
+    height: 80px;
+    background-color: #fcf0d0;
+    /* 丸の色 */
+    border-radius: 50%;
+    /* 正円にする */
+    margin-top: 2px;
+    /* 文字との間隔 */
+    z-index: -1;
+}
+
+.title_middle {
+    font-size: 40px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.title_small {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     margin: 10px 0 15px 0;
 }
 
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    margin: 40px 0 50px 0;
+}
 
 /* アンダーライン関係 */
 .underline {
@@ -207,60 +245,141 @@ h3 {
 }
 
 
-/* できること */
+/* できること・作ったもの関係 */
 
-#skill ul {
+.skill-work ul {
     display: flex;
     justify-content: space-between;
-
 }
 
-#skill li {
+.skill-work li {
     width: 28%;
 }
 
-#skill img {
+.skill-work img {
     margin-top: 30px;
     width: 100%;
     height: auto;
 }
 
-#skill button {
-
-    background-position: center;
+.skill-work p {
+    line-height: 1.5;
 }
 
-
-
-/* 作ったもの */
-
-#work ul {
-    display: flex;
-    justify-content: space-between;
-
+.work_text {
+    text-align: center;
 }
+
+/* #skill li {
+    width: 28%;
+} */
 
 #work li {
     width: 29%;
     cursor: pointer;
+    /* トップページの作ったもののところ */
 }
 
-#work img {
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
+/* スキルのスキルの部分 */
+
+.skill_box1,
+.skill_box2 {
+    display: flex;
+    font-weight: bold;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 7%;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#work p {
+.skill_box1 {
+    margin-top: 70px;
+}
+
+.skill_box2 {
+    margin-top: 50px;
+}
+
+.skill_box_title {
+    width: 25%;
+}
+
+.skill_box_long,
+.skill_box_small {
+    display: flex;
+    /* FlexをONにする */
+    justify-content: center;
+    /* 横中央 */
+    align-items: center;
+    /* 縦中央 */
+    border: solid 2px #330000;
+    height: 100%;
+}
+
+.skill_box_long {
+    width: 73%;
+    padding-left: 2%;
+    box-sizing: border-box;
+    background-image: url("../images/skill_backlong_pc.svg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    /* 繰り返しなし */
+    background-position: center;
+    /* 中央に配置 */
+}
+
+.skill_box_small {
+    width: 23%;
+    gap: 2%;
+    background-image: url("../images/skill_back.svg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    /* 繰り返しなし */
+    background-position: center;
+    /* 中央に配置 */
+}
+
+
+/* 詳細ページのメッセージの部分 */
+
+.message_rihgt {
+    position: relative;
+    margin-top: 230px;
+
+}
+
+.message_rihgt img {
+    width: 200px;
+    position: absolute;
+    top: -500%;
+    right: 15%;
+    z-index: -1;
+}
+
+.message_left {
+    position: relative;
+    margin-top: 230px;
+}
+
+.message_left img {
+    width: 200px;
+    position: absolute;
+    top: -500%;
+    left: 15%;
+    z-index: -1;
+}
+
+.message {
+    font-size: 16px;
     text-align: center;
 }
 
-
 /* 連絡ください */
 
-#contact {
+/* #contact {
     padding: 0;
-}
+} */
 
 #contact div {
     margin-top: 40px;
@@ -289,7 +408,6 @@ h3 {
     left: 0;
     width: 85%;
 }
-
 
 /* フッター */
 
@@ -335,4 +453,23 @@ footer {
 .pc_nav_copyright img {
     width: 75px;
     height: auto;
+}
+
+
+/* 連絡くださいのテスト */
+.contact_detail {
+    margin-top: 40px;
+    position: relative;
+}
+
+.contact_detail img {
+    display: block;
+    width: 100%
+}
+
+.contact_detail_right {
+    position: absolute;
+    bottom: 43%;
+    left: -7%;
+    font-size: 36px;
 }
