@@ -119,7 +119,7 @@ a:hover::after {
 .title_large {
     margin-top: 120px;
     margin-left: 7%;
-    font-size: 68px;
+    font-size: 60px;
     font-family: "kinto-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -130,13 +130,13 @@ a:hover::after {
 .title_large::before {
     content: "";
     position: absolute;
-    top: -3%;
+    top: 50%;
     /* 下に配置 */
-    left: -2%;
+    left: -0.1em;
     /* 横中央に配置 */
-    width: 80px;
+    width: 1.2em;
     /* 丸の直径 */
-    height: 80px;
+    height: 1.2em;
     background-color: #fcf0d0;
     /* 丸の色 */
     border-radius: 50%;
@@ -144,6 +144,7 @@ a:hover::after {
     margin-top: 2px;
     /* 文字との間隔 */
     z-index: -1;
+    transform: translateY(-50%);
 }
 
 .title_middle {
@@ -245,21 +246,34 @@ a:hover::after {
 }
 
 
-/* できること・作ったもの関係 */
+/* できること・つくったもの関係 */
 
 .skill-work ul {
     display: flex;
     justify-content: space-between;
 }
 
+.work_list {
+    display: flex;
+    gap: 8%;
+    justify-content: flex-start;
+    /* 左寄せ */
+}
+
+.work_list li,
 .skill-work li {
     width: 28%;
 }
 
+.work_list img,
 .skill-work img {
     margin-top: 30px;
     width: 100%;
     height: auto;
+}
+
+.work_list img {
+    margin-top: 60px;
 }
 
 .skill-work p {
@@ -270,6 +284,38 @@ a:hover::after {
     text-align: center;
 }
 
+.work_text2 {
+    text-align: center;
+    margin-top: 30px;
+    /* マージンあり */
+}
+
+/* 「つくったもの」のボタン */
+
+.button_small {
+    width: 280px;
+    height: 40px;
+    background-image: url('../images/button_s.png');
+    display: block;
+    /* ブロック要素に */
+    margin: 30px auto;
+    /* 左右のマージンを自動で均等に */
+    border: none;
+    color: #330000;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    /* 影を追加 */
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.button_small:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    /* 右に3px、下に3px移動 */
+}
+
 /* #skill li {
     width: 28%;
 } */
@@ -277,7 +323,7 @@ a:hover::after {
 #work li {
     width: 29%;
     cursor: pointer;
-    /* トップページの作ったもののところ */
+    /* トップページの「作ったもの」のところ */
 }
 
 /* スキルのスキルの部分 */
@@ -377,9 +423,49 @@ a:hover::after {
 
 /* 連絡ください */
 
-/* #contact {
-    padding: 0;
-} */
+.skill-work_right {
+    padding-left: 15%;
+}
+
+.skill-work_left {
+    padding-left: 15%;
+}
+
+.contact_detail {
+    margin-top: 40px;
+    position: relative;
+}
+
+.contact_detail img {
+    display: block;
+    width: calc(100% - 10px + (100vw - 100%) / 2);
+    max-width: none;
+}
+
+.contact_text_right,
+.contact_text_left {
+    position: absolute;
+    bottom: 40%;
+    font-size: 36px;
+}
+
+.contact_text_left {
+    left: -7%;
+}
+
+.contact_text_right {
+    left: -7%;
+}
+
+.button_right {
+    margin: 50px auto 50px 0;
+}
+
+.button_left {
+    margin: 50px 0 50px auto;
+}
+
+/* トップページの「連絡ください」 */
 
 #contact div {
     margin-top: 40px;
@@ -453,23 +539,4 @@ footer {
 .pc_nav_copyright img {
     width: 75px;
     height: auto;
-}
-
-
-/* 連絡くださいのテスト */
-.contact_detail {
-    margin-top: 40px;
-    position: relative;
-}
-
-.contact_detail img {
-    display: block;
-    width: 100%
-}
-
-.contact_detail_right {
-    position: absolute;
-    bottom: 43%;
-    left: -7%;
-    font-size: 36px;
 }
