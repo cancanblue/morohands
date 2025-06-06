@@ -27,7 +27,6 @@ li {
     font-weight: 300;
     font-style: normal;
     letter-spacing: 0.1em;
-
 }
 
 a {
@@ -50,6 +49,10 @@ img {
 
 h1 {
     width: 480px;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 button {

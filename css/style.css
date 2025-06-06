@@ -9,7 +9,7 @@
     padding: 30px 2% 0 2%;
 }
 
-
+/* PC版のメニュー */
 
 .pc_nav ul {
     display: flex;
@@ -114,6 +114,15 @@ a:hover::after {
     /* box-sizing: border-box; */
 }
 
+.content_works {
+    max-width: 1000px;
+    padding: 0 10px;
+    margin: 150px auto 0 auto;
+    position: relative;
+    text-align: center;
+    /* box-sizing: border-box; */
+}
+
 /* タイトル関係 */
 
 .title_large {
@@ -164,6 +173,14 @@ a:hover::after {
     text-align: center;
     font-size: 18px;
     margin: 40px 0 50px 0;
+    /* スキルページのサブタイトル */
+}
+
+.works_title {
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold;
+    /* 各作品ページのh2 */
 }
 
 /* アンダーライン関係 */
@@ -214,12 +231,12 @@ a:hover::after {
 }
 
 
-/* わたしのこと */
+/* トップのわたしのこと */
 
-#about {
+/* #about {
     display: flex;
     justify-content: space-between;
-}
+} */
 
 #about h2 {
     text-align: left;
@@ -231,18 +248,52 @@ a:hover::after {
     height: auto;
 }
 
-#about p {
-    font-size: 16px;
-    line-height: 1.3;
-    margin: 25px 0;
+.about_top {
+    display: flex;
+    justify-content: space-between;
 }
 
-.about_left {
+.about_top_left img {
+    width: 100%;
+    height: auto;
+}
+
+.about_top_left {
+    width: 55%;
+}
+
+.about_top_right {
+    width: 40%;
+}
+
+
+/* .about_left {
     width: 55%;
 }
 
 .about_right {
     width: 40%;
+} */
+
+/* わたしのこと */
+
+.about_main h3 {
+    text-align: left;
+    width: 100%;
+}
+
+.about_top_text {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 25px 0;
+}
+
+.about_main_left {
+    width: 39%;
+}
+
+.about_main_right {
+    width: 54%;
 }
 
 
@@ -290,11 +341,11 @@ a:hover::after {
     /* マージンあり */
 }
 
-/* 「つくったもの」のボタン */
+/* 「つくったもの」のボタン小 */
 
 .button_small {
-    width: 280px;
-    height: 40px;
+    width: 100%;
+    height: 42px;
     background-image: url('../images/button_s.png');
     display: block;
     /* ブロック要素に */
@@ -386,8 +437,96 @@ a:hover::after {
     /* 中央に配置 */
 }
 
+/* 各つくったものページの部分 */
 
-/* 詳細ページのメッセージの部分 */
+.works {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin: 120px 10% 50px 0;
+    position: relative;
+}
+
+.works p {
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+.works::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    width: calc(100% - 10px + (100vw - 100%) / 2);
+    height: 1px;
+    background-color: #330000;
+    /* 各つくったものページのアンダーライン */
+}
+
+.works_sub1 {
+    margin: 90px 0 50px 0;
+    /* 下の画像が1つの場合 */
+}
+
+.works_sub2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 90px 0 50px 0;
+    /* 下の画像が2つの場合 */
+}
+
+.works_click1 {
+    width: 19%;
+    margin: 10px 0 0 81%;
+    /* クリックするが1つの場合 */
+}
+
+.works_click2 {
+    width: 38%;
+    display: flex;
+    margin: 10px 0 0 59%;
+    gap: 30px;
+    /* クリックするが2つの場合 */
+}
+
+.works_click_img {
+    width: 100%;
+    transition: transform 0.3s ease;
+    /* なめらかに変化 */
+}
+
+.works_click_img:hover {
+    transform: scale(1.1);
+    /* 1.1倍に拡大 */
+    cursor: pointer;
+}
+
+.works_click1 p,
+.works_click2 p {
+    font-size: 12px;
+}
+
+.works_img1 {
+    padding: 0 10%;
+    box-sizing: border-box;
+    /* 上の画像のサイズ調節 */
+}
+
+.works_img2 {
+    padding: 0 15%;
+    box-sizing: border-box;
+    /* 上の画像のサイズ調節 */
+}
+
+.works_text {
+    margin-left: 30px;
+    font-size: 16px;
+    line-height: 2.1;
+    text-align: left;
+}
+
+
+/* 下層ページのメッセージの部分 */
 
 .message_rihgt {
     position: relative;
@@ -423,13 +562,21 @@ a:hover::after {
 
 /* 連絡ください */
 
-.skill-work_right {
+.contact_right {
+    padding-left: 15%;
+}
+
+.contact_left {
+    padding-left: 15%;
+}
+
+/* .skill-work_right {
     padding-left: 15%;
 }
 
 .skill-work_left {
     padding-left: 15%;
-}
+} */
 
 .contact_detail {
     margin-top: 40px;
@@ -438,8 +585,23 @@ a:hover::after {
 
 .contact_detail img {
     display: block;
-    width: calc(100% - 10px + (100vw - 100%) / 2);
+    width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
     max-width: none;
+}
+
+.contact_underline_right {
+    margin: 0 0 30px 0;
+    position: relative;
+}
+
+.contact_underline_right::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
+    height: 2px;
+    background-color: #ffcc33;
 }
 
 .contact_text_right,
