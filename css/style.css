@@ -443,7 +443,7 @@ a:hover::after {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin: 120px 10% 50px 0;
+    margin: 120px 10% 40px 0;
     position: relative;
 }
 
@@ -464,16 +464,28 @@ a:hover::after {
 }
 
 .works_sub1 {
-    margin: 90px 0 50px 0;
+    margin: 90px 0 25px 0;
     /* 下の画像が1つの場合 */
+}
+
+.works_sub1 img {
+    width: 70%;
+    height: auto;
 }
 
 .works_sub2 {
     display: flex;
     justify-content: space-between;
-    margin: 90px 0 50px 0;
+    margin: 90px 0 25px 0;
+    padding: 0 5%;
     /* 下の画像が2つの場合 */
 }
+
+.works_sub2 img {
+    width: 45%;
+    height: auto;
+}
+
 
 .works_click1 {
     width: 19%;
@@ -518,13 +530,17 @@ a:hover::after {
     /* 上の画像のサイズ調節 */
 }
 
-.works_text {
-    margin-left: 30px;
+
+#works_text {
+    margin-left: 8%;
     font-size: 16px;
-    line-height: 2.1;
     text-align: left;
+    /* 作品の説明のところ */
 }
 
+#works_text li {
+    padding-top: 10px;
+}
 
 /* 下層ページのメッセージの部分 */
 
@@ -657,6 +673,157 @@ a:hover::after {
     width: 85%;
 }
 
+/* 問い合わせフォームページ */
+
+.title_right {
+    font-size: 36px;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 15%;
+}
+
+.form_text_right {
+    position: absolute;
+    bottom: 70%;
+    left: -10%;
+    font-size: 36px;
+}
+
+.form_text_right {
+    position: absolute;
+    bottom: 70%;
+    left: -10%;
+    font-size: 36px;
+}
+
+.thanks_text_right {
+    position: absolute;
+    bottom: 40%;
+    left: -10%;
+    font-size: 36px;
+}
+
+.thanks_message {
+    position: relative;
+    margin-top: 230px;
+}
+
+.thanks_message p {
+    font-size: 23px;
+    line-height: 2.1;
+    text-align: center;
+}
+
+.thanks_message img {
+    width: 200px;
+    position: absolute;
+    bottom: -50%;
+    right: 15%;
+    z-index: -1;
+}
+
+/* .form_detail {
+    margin-top: 40px;
+
+}
+
+.form_detail img {
+    display: block;
+    width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
+    max-width: none;
+    position: relative;
+} */
+
+.form_underline_left {
+    margin: 90px 0 30px 0;
+    position: relative;
+}
+
+.form_underline_left::after {
+    content: '';
+    position: absolute;
+    right: 15%;
+    bottom: -15px;
+    width: calc(100% + 10px + (100vw - 100% - 15%) / 2);
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+.form {
+    max-width: 820px;
+    margin: 120px auto 220px auto;
+}
+
+.form__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.form__label,
+.form__input {
+    padding: 10px;
+}
+
+.form__label {
+    width: 90%;
+}
+
+.form__input {
+    /* width: 90%; */
+    font-size: 16px;
+    border: none;
+    background-color: #fef7d9
+}
+
+/* .form__input:focus-visible {
+    outline: green auto 1px;
+} */
+
+textarea.form__input {
+    height: 300px;
+}
+
+
+.form__submit {
+    margin: 50px 0 50px auto;
+}
+
+/*
+.form__submit button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border: solid 1px green;
+    border-radius: 4px;
+    padding: 5px 32px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.form__submit button:hover {
+    color: green;
+    background-color: transparent;
+} */
+
+@media (min-width: 640px) {
+    .form__item {
+        flex-wrap: nowrap;
+    }
+
+    .form__label {
+        width: 40%;
+    }
+
+    .form__input {
+        width: 74%;
+    }
+}
+
+
+
 /* フッター */
 
 footer {
@@ -670,22 +837,6 @@ footer {
     padding: 0 4%;
     cursor: pointer;
 }
-
-/* .pc_nav_footer ul {
-    display: flex;
-    gap: 60px;
-}
-
-.pc_nav_footer li {
-    font-family: "kinto-sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-    width: 82px;
-    text-align: center;
-    letter-spacing: normal;
-
-} */
 
 .pc_nav_copyright {
     display: flex;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MORO HANDS／つくったもの　ウェブデザイン5</title>
+    <title>MORO HANDS／お問合せ</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -36,37 +36,36 @@
     </header>
 
     <main>
-        <h2 class="title_large">つくったもの</h2>
-
-        <section class="content_works">
-            <img src="images/work5.png" class="works_img1" alt="WEBバナー">
-            <div class="works">
-                <h3 class="works_title">WEBデザイン</h3>
-                <p>「こう見せたい」を具現化します</p>
-            </div>
-            <ul id="works_text">
-                <li>タイトル：美容院　ホームページ</li>
-                <li>制作概要：習用・デザイン</li>
-                <li>使用ツール：Illustrator</li>
-                <li>制作期間：〇日</li>
-            </ul>
-            <div class="works_click1">
-                <div class="works_click_img">
-                    <img src="images/works_click_pc.svg" alt="WEBバナー">
-                    <p>パソコン版を見る</p>
-                </div>
-            </div>
-        </section>
-
         <section class="contact_right content">
-            <h3 class="title_middle contact_underline_right">連絡ください</h3>
             <div class="contact_detail">
                 <img src="images/pc_contact2.jpg" alt="お問い合わせ">
-                <p class="contact_text_right">つくったもの、どうだった？</p>
+                <p class="form_text_right">困ってへん？話を聞くよ。</p>
+                <h3 class="title_right form_underline_left">連絡ください</h3>
             </div>
-            <button class="button_right">
-                お手伝いできたらいいねんけど</button>
         </section>
+        <form class="form">
+            <div class="form__item">
+                <label class="form__label" for="field-name">お名前</label>
+                <input class="form__input" id="field-name" placeholder="例）奈間江　花子" type="text" required="required" />
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="field-name">ふりがな</label>
+                <input class="form__input" id="field-name" placeholder="例）なまえ　はなこ" type="text" required="required" />
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="field-mail">メールアドレス</label>
+                <input class="form__input" id="field-mail" placeholder="例）namaehanako@mail.com" type="email"
+                    required="required" />
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="field-message">困ってることはなに？</label>
+                <textarea class="form__input" id="field-message" placeholder="印刷物制作やホームページ更新など…困っていることをお聞かせください。">
+                </textarea>
+            </div>
+            <div>
+                <button class="form__submit" type="submit">送ってね。返信するね。</button>
+            </div>
+        </form>
 
 
 
