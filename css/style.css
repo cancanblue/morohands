@@ -184,7 +184,9 @@ a:hover::after {
 }
 
 /* アンダーライン関係 */
-.underline {
+.underline,
+.about_underline_right,
+.about_underline_left {
     margin: 10px 0 20px 0;
     position: relative;
     display: inline-block;
@@ -196,6 +198,26 @@ a:hover::after {
     bottom: -15px;
     left: 0;
     width: calc(100% - 10px + (100vw - (100% * (100 / 40)))/2);
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+.about_underline_right::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
+    height: 2px;
+    background-color: #ffcc33;
+}
+
+.about_underline_left::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
     height: 2px;
     background-color: #ffcc33;
 }
@@ -229,7 +251,6 @@ a:hover::after {
     height: 2px;
     background-color: #ffcc33;
 }
-
 
 /* トップのわたしのこと */
 
@@ -277,8 +298,14 @@ a:hover::after {
 
 /* わたしのこと */
 
-.about_main h3 {
+.about_main h3,
+.about_dream h3,
+.about_dream_left h3 {
     text-align: left;
+}
+
+.about_dream_left h3 {
+    display: block;
     width: 100%;
 }
 
@@ -296,9 +323,98 @@ a:hover::after {
     width: 54%;
 }
 
+.about_dream {
+    width: 100%;
+}
 
-/* できること・つくったもの関係 */
+.about_dream_left {
+    width: 54%;
+}
 
+.about_dream_right {
+    width: 39%;
+}
+
+.about_hobby_2ndrow {
+    margin-top: 80px;
+}
+
+.about_hobby li {
+    width: 28%;
+    position: relative;
+    text-align: center;
+}
+
+/* モーダルウィンドウ */
+.open-button,
+.close-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #330000;
+    color: white;
+}
+
+.open-button {
+    position: absolute;
+    bottom: 2%;
+    right: 12%;
+}
+
+.dialog {
+    &::backdrop {
+        background-color: rgba(0 0 0 / 0.8);
+    }
+
+    width: 510px;
+    height: 100%;
+    padding:15px;
+    border: solid 2px hsl(45, 100%, 60%);
+    box-sizing: border-box;
+    border-radius: 2%;
+}
+
+.dialog h2 {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dialog p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.dialog_img_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dialog_img {
+    position: relative;
+    display: block;
+    /* インライン画像をブロック化 */
+}
+
+.dialog_img_wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 1px hsl(45, 100%, 60%);
+    transform: translate(5px, 5px);
+    /* ずらす */
+    pointer-events: none;
+    /* 擬似要素がクリックを妨げないようにする */
+    box-sizing: border-box;
+}
+
+
+/* できること・つくったもの・わたしのこと関係 */
+
+.about_hobby ul,
 .skill-work ul {
     display: flex;
     justify-content: space-between;
