@@ -309,10 +309,15 @@ a:hover::after {
     width: 100%;
 }
 
-.about_top_text {
+.about_top_text,
+.about_dream_text {
     font-size: 16px;
     line-height: 1.3;
     margin: 25px 0;
+}
+
+.about_dream_text {
+    margin-top: 50px;
 }
 
 .about_main_left {
@@ -478,7 +483,7 @@ a:hover::after {
     color: #330000;
     font-size: 16px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: normal;
     /* 影を追加 */
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
