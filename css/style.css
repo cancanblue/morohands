@@ -353,11 +353,17 @@ a:hover::after {
     border-radius: 50%;
     background-color: #330000;
     color: white;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    box-shadow: none;
 }
 
 .open-button {
     position: absolute;
-    bottom: 2%;
+    bottom: 22%;
     right: 12%;
 }
 
@@ -383,6 +389,7 @@ a:hover::after {
 .dialog p {
     text-align: justify;
     line-height: 1.6;
+    padding: 0 8px;
 }
 
 .dialog_img_wrapper {
@@ -660,31 +667,38 @@ a:hover::after {
 
 /* 下層ページのメッセージの部分 */
 
-.message_rihgt {
-    position: relative;
+.message_right {
     margin-top: 230px;
-
+    text-align: center;
 }
 
-.message_rihgt img {
+.message_right img {
     width: 200px;
     position: absolute;
-    top: -500%;
-    right: 15%;
+    top: 50%;
+    right: 0;
     z-index: -1;
+    transform: translateY(-50%);
 }
 
 .message_left {
-    position: relative;
     margin-top: 230px;
+    text-align: center;
 }
 
 .message_left img {
     width: 200px;
     position: absolute;
-    top: -500%;
-    left: 15%;
+    top: 50%;
+    left: 0;
     z-index: -1;
+    transform: translateY(-50%);
+}
+
+.message_right div,
+.message_left div {
+    position: relative;
+    display: inline-block;
 }
 
 .message {
@@ -805,11 +819,11 @@ a:hover::after {
     font-size: 36px;
 }
 
-.form_text_right {
-    position: absolute;
-    bottom: 70%;
-    left: -10%;
-    font-size: 36px;
+input::placeholder,
+textarea::placeholder {
+    opacity: 0.5;
+    color: #330000;
+    font-size: 13px;
 }
 
 .thanks_text_right {
@@ -830,6 +844,7 @@ a:hover::after {
     text-align: center;
 }
 
+.circle,
 .thanks_message img {
     width: 200px;
     position: absolute;
@@ -838,17 +853,16 @@ a:hover::after {
     z-index: -1;
 }
 
-/* .form_detail {
-    margin-top: 40px;
 
+.circle {
+    width: 200px;
+    height: 200px;
+    border: solid 1px #ffcc33;
+    border-radius: 50%;
+    background: transparent;
+    bottom: -120%;
+    right: 8%;
 }
-
-.form_detail img {
-    display: block;
-    width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
-    max-width: none;
-    position: relative;
-} */
 
 .form_underline_left {
     margin: 90px 0 30px 0;
@@ -887,42 +901,18 @@ a:hover::after {
 }
 
 .form__input {
-    /* width: 90%; */
     font-size: 16px;
     border: none;
     background-color: #fef7d9
 }
 
-/* .form__input:focus-visible {
-    outline: green auto 1px;
-} */
-
 textarea.form__input {
     height: 300px;
 }
 
-
 .form__submit {
     margin: 50px 0 50px auto;
 }
-
-/*
-.form__submit button {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    background-color: green;
-    border: solid 1px green;
-    border-radius: 4px;
-    padding: 5px 32px;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-.form__submit button:hover {
-    color: green;
-    background-color: transparent;
-} */
 
 @media (min-width: 640px) {
     .form__item {

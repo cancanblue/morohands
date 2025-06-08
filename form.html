@@ -38,29 +38,33 @@
     <main>
         <section class="contact_right content">
             <div class="contact_detail">
-                <img src="images/pc_contact2.jpg" alt="お問い合わせ">
+                <img src="./images/pc_contact2.jpg" alt="お問い合わせ">
                 <p class="form_text_right">困ってへん？話を聞くよ。</p>
                 <h3 class="title_right form_underline_left">連絡ください</h3>
             </div>
         </section>
-        <form class="form">
+        <form class="form"
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScqIG8Ns9ibp1nviMytza2HF8cEcG1GdpF_wn4hb4GfMf8KGQ/formResponse"
+            method="post" target="hidden_iframe" onsubmit="submitted=true;">
             <div class="form__item">
                 <label class="form__label" for="field-name">お名前</label>
-                <input class="form__input" id="field-name" placeholder="例）奈間江　花子" type="text" required="required" />
-            </div>
-            <div class="form__item">
-                <label class="form__label" for="field-name">ふりがな</label>
-                <input class="form__input" id="field-name" placeholder="例）なまえ　はなこ" type="text" required="required" />
-            </div>
-            <div class="form__item">
-                <label class="form__label" for="field-mail">メールアドレス</label>
-                <input class="form__input" id="field-mail" placeholder="例）namaehanako@mail.com" type="email"
+                <input name="entry.1348722556" class="form__input" id="field-name" placeholder="例）奈間江　花子" type="text"
                     required="required" />
             </div>
             <div class="form__item">
+                <label class="form__label" for="field-name">ふりがな</label>
+                <input name="entry.1410269473" class="form__input" id="field-name" placeholder="例）なまえ　はなこ" type="text"
+                    required="required" />
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="field-mail">メールアドレス</label>
+                <input name="entry.571936850" class="form__input" id="field-mail" placeholder="例）namaehanako@mail.com"
+                    type="email" required="required" />
+            </div>
+            <div class="form__item">
                 <label class="form__label" for="field-message">困ってることはなに？</label>
-                <textarea class="form__input" id="field-message" placeholder="印刷物制作やホームページ更新など…困っていることをお聞かせください。">
-                </textarea>
+                <textarea name="entry.1493484150" class="form__input" id="field-message"
+                    placeholder="印刷物制作やホームページ更新など…困っていることをお聞かせくださいね。"></textarea>
             </div>
             <div>
                 <button class="form__submit" type="submit">送ってね。返信するね。</button>
@@ -82,11 +86,17 @@
                 </ul>
             </nav>
             <div class="pc_nav_copyright">
-                <img src="images/note.svg" alt="note">
+                <img src="./images/note.svg" alt="note">
                 <small>&copy; MORO HANDS</small>
             </div>
         </div>
     </footer>
+
+    <script type="text/javascript">
+        let submitted = false;
+    </script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"
+        onload="if(submitted){window.location='./form_thanks.html';}"></iframe>
 </body>
 
 </html>

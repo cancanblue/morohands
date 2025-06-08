@@ -39,7 +39,7 @@
         <h2 class="title_large">自己紹介</h2>
         <section class="content about_top">
             <div class="about_main_left">
-                <img src="images/about_main.jpg" alt="わたしのこと">
+                <img src="./images/about_main.jpg" alt="わたしのこと">
             </div>
             <div class="about_main_right">
                 <h3 class="title_middle about_underline_right">わたしのこと</h3>
@@ -64,14 +64,14 @@
             <p class="subtitle">上手い・下手は別として、いろいろやってます。</p>
             <ul>
                 <li class="about_hobby_img">
-                    <img src="images/about_shippo.png" alt="七宝焼">
+                    <img src="./images/about_shippo.png" alt="七宝焼">
                     <h4 class="title_small">七宝焼</h4>
                     <div class="open">
-                        <button class="open-button">+</button>
+                        <button class="open-button" data-target="modal1">+</button>
                     </div>
-                    <dialog class="dialog">
+                    <dialog class="dialog" id="modal1">
                         <div class="dialog_img_wrapper">
-                            <img src="images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
+                            <img src="./images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
                         </div>
                         <h2>七宝焼</h2>
                         <p>20代の頃からお世話になっている、大好きな絵の先生から教えてもらっています。
@@ -83,26 +83,101 @@
                     </dialog>
                 </li>
                 <li>
-                    <img src="images/about_color.png" alt="カラーセラピー">
+                    <img src="./images/about_color.png" alt="カラーセラピー">
                     <h4 class="title_small">カラーセラピー</h4>
+                    <div class="open">
+                        <button class="open-button" data-target="modal2">+</button>
+                    </div>
+                    <dialog class="dialog" id="modal2">
+                        <div class="dialog_img_wrapper">
+                            <img src="./images/pc_color.jpg" alt="カラーセラピー" class="dialog_img">
+                        </div>
+                        <h2>カラーセラピー</h2>
+                        <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時の悩みや想いから浮かぶ気になる色で深堀りしていくセラピーです。
+                            <br>ただいま勉強中＆実践中。
+                        </p>
+                        <button>ご紹介できるよう準備中</button>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
                 <li>
-                    <img src="images/about_card.png" alt="タロットカード">
+                    <img src="./images/about_card.png" alt="タロットカード">
                     <h4 class="title_small">タロットカード</h4>
+                    <div class="open">
+                        <button class="open-button" data-target="modal3">+</button>
+                    </div>
+                    <dialog class="dialog" id="modal3">
+                        <div class="dialog_img_wrapper">
+                            <img src="./images/pc_card.jpg" alt="タロットカード" class="dialog_img">
+                        </div>
+                        <h2>タロットカード</h2>
+                        <p>正式には「インナーチャイルドカード」と言います。<br>
+                            セラピーの一つで、その時に必要なカードを引き当て、潜在意識レベルに深く刺さる前向きなメッセージに出会えます。<br>
+                            カードの先生の元でセラピストになるための勉強中！
+                        </p>
+                        <button>先生のブログをぜひ♪</button>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
             </ul>
             <ul class="about_hobby_2ndrow">
                 <li>
-                    <img src="images/about_camera.png" alt="カメラ">
+                    <img src="./images/about_camera.png" alt="カメラ">
                     <h4 class="title_small">カメラ</h4>
+                    <div class="open">
+                        <button class="open-button" data-target="modal4">+</button>
+                    </div>
+                    <dialog class="dialog" id="modal4">
+                        <div class="dialog_img_wrapper">
+                            <img src="./images/pc_camera.jpg" alt="カメラ" class="dialog_img">
+                        </div>
+                        <h2>カメラ</h2>
+                        <p>ご縁があって、フィルムカメラを始めました。
+                            いらなくなったカメラをもらい、ちょっとした風景を撮影しています。<br>
+                            フィルムカメラの良さは…現像してみないとわからない。<br>
+                            人生みたいでワクワクしません？
+                        </p>
+                        <button>フィルムカメラを買うならココ！</button>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
                 <li>
-                    <img src="images/about_guitar.png" alt="ギター">
+                    <img src="./images/about_guitar.png" alt="ギター">
                     <h4 class="title_small">ギター</h4>
+                    <div class="open">
+                        <button class="open-button" data-target="modal5">+</button>
+                    </div>
+                    <dialog class="dialog" id="modal5">
+                        <div class="dialog_img_wrapper">
+                            <img src="./images/pc_guitar.jpg" alt="ギター" class="dialog_img">
+                        </div>
+                        <h2>ギター</h2>
+                        <p>バンドマンの娘に憧れて？ギターを習っています。<br>
+                            先生はすごい方なのですが、私はめっぽうセンスがない。<br>
+                            レッスンではギターに触っているよりおしゃべりしている時間の方が長いかも…写真はギターの先生の手です。
+                        </p>
+                        <button>先生のYouTubeをぜひ♪</button>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
                 <li>
-                    <img src="images/about_oshi.png" alt="推し活">
+                    <img src="./images/about_oshi.png" alt="推し活">
                     <h4 class="title_small">推し活</h4>
+                    <div class="open">
+                        <button class="open-button" data-target="modal6">+</button>
+                    </div>
+                    <dialog class="dialog" id="modal6">
+                        <div class="dialog_img_wrapper">
+                            <img src="./images/pc_oshi.jpg" alt="推し活" class="dialog_img">
+                        </div>
+                        <h2>推し活</h2>
+                        <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。
+                            抽選もひとりの方が当たりやすいので、だいたいボッチ参戦です。<br>
+                            ライブ友達募集中です。
+                        </p>
+                        <button>推し活日記書いてます</button>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
             </ul>
         </section>
@@ -129,12 +204,14 @@
         </section>
 
         <div class="message_left">
-            <img src="images/pc_maru.png" alt="丸いイメージ">
-            <p class="message">そして、もっとおばあちゃんになったら、スナック「かなえ」をオープンして、大好きな人たちの憩いの場所を作りたい。</p>
+            <div>
+                <img src="images/pc_maru.png" alt="丸いイメージ">
+                <p class="message">そして、もっとおばあちゃんになったら、スナック「かなえ」をオープンして、大好きな人たちの憩いの場所を作りたい。</p>
+            </div>
         </div>
 
-        <section class="skill-work_right content">
-            <h3 class="title_middle underline_right">連絡ください</h3>
+        <section class="contact_right content">
+            <h3 class="title_middle contact_underline_right">連絡ください</h3>
             <div class="contact_detail">
                 <img src="images/pc_contact2.jpg" alt="お問い合わせ">
                 <p class="contact_text_right">こんなわたしです。何かできる？</p>
@@ -162,18 +239,24 @@
     </footer>
 
     <script>
-        const buttonOpen = document.querySelector('.open-button')
-        const modal = document.querySelector('.dialog')
-        const buttonClose = document.querySelector('.close-button')
+        // 開くボタンすべてにイベントを付ける
+        document.querySelectorAll('.open-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                const modal = document.getElementById(targetId);
+                if (modal) modal.showModal();
+            });
+        });
 
-        buttonOpen.addEventListener('click', function () {
-            modal.showModal()
-        })
-
-        buttonClose.addEventListener('click', function () {
-            modal.close()
-        })
+        // 閉じるボタンすべてにイベントを付ける
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('dialog');
+                if (modal) modal.close();
+            });
+        });
     </script>
+
 </body>
 
 </html>
