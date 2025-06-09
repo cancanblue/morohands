@@ -843,21 +843,23 @@ textarea::placeholder {
     margin-top: 230px;
 }
 
-.thanks_message p {
+.thanks_message_text {
     font-size: 23px;
     line-height: 2.1;
     text-align: center;
 }
 
-.circle,
+/* .circle,
 .thanks_message img {
     width: 200px;
     position: absolute;
     bottom: -50%;
     right: 15%;
     z-index: -1;
-}
-
+} 
+    丸いイメージ
+    いちお置いてるけどわからない
+    */
 
 .circle {
     width: 200px;
@@ -865,8 +867,17 @@ textarea::placeholder {
     border: solid 1px #ffcc33;
     border-radius: 50%;
     background: transparent;
-    bottom: -120%;
-    right: 8%;
+    /* bottom: -120%;
+    right: 8%; */
+}
+
+.circle_position {
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: -1;
+    transform: translateY(-50%);
 }
 
 .form_underline_left {
