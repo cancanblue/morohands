@@ -350,7 +350,7 @@ a:hover::after {
     text-align: center;
 }
 
-/* モーダルウィンドウ */
+/* 「わたしのことの」のモーダルウィンドウ */
 .open-button,
 .close-button {
     width: 20px;
@@ -617,34 +617,92 @@ a:hover::after {
 
 .works_click1 {
     width: 19%;
-    margin: 10px 0 0 81%;
+    margin: 10px 0 0 72%;
     /* クリックするが1つの場合 */
 }
 
 .works_click2 {
     width: 38%;
     display: flex;
-    margin: 10px 0 0 59%;
+    margin: 10px 0 0 65%;
     gap: 30px;
     /* クリックするが2つの場合 */
-}
-
-.works_click_img {
-    width: 100%;
-    transition: transform 0.3s ease;
-    /* なめらかに変化 */
-}
-
-.works_click_img:hover {
-    transform: scale(1.1);
-    /* 1.1倍に拡大 */
-    cursor: pointer;
 }
 
 .works_click1 p,
 .works_click2 p {
     font-size: 12px;
 }
+
+/* クリックブロックのスタイル */
+.click-block {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* なめらかに変化 */
+}
+
+.click-block img {
+    width: 100px;
+}
+
+.click-block:hover {
+    transform: scale(1.1);
+    /* 1.1倍に拡大 */
+    cursor: pointer;
+}
+
+/* つくったもののモーダルウィンドウ関係 */
+
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    /* 画面高さいっぱいに */
+    overflow-y: auto;
+    /* 縦スクロール可能に */
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* 画像が端にくっつかないように */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 45vw;
+    /* 画面横幅の60%まで拡大 */
+    height: auto;
+    /* 高さは自動調整 */
+    display: block;
+    margin: 0 auto;
+}
+
+.modal .close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+/* 閉じるボタン */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ↑つくったもののモーダルウィンドウ関係 */
 
 .works_img1 {
     padding: 0 10%;
@@ -700,7 +758,7 @@ a:hover::after {
     transform: translateY(-50%);
 }
 
-.message_right div,
+.message_right>div,
 .message_left div {
     position: relative;
     display: inline-block;
@@ -849,35 +907,21 @@ textarea::placeholder {
     text-align: center;
 }
 
-/* .circle,
-.thanks_message img {
-    width: 200px;
-    position: absolute;
-    bottom: -50%;
-    right: 15%;
-    z-index: -1;
-} 
-    丸いイメージ
-    いちお置いてるけどわからない
-    */
-
 .circle {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border: solid 1px #ffcc33;
     border-radius: 50%;
     background: transparent;
-    /* bottom: -120%;
-    right: 8%; */
 }
 
 .circle_position {
-    width: 200px;
+    width: 150px;
     position: absolute;
     top: 50%;
-    right: 0;
+    right: -20%;
     z-index: -1;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
 }
 
 .form_underline_left {
