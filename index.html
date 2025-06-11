@@ -22,24 +22,35 @@
 <body>
     <header>
         <div class="header_wrap">
-            <h1><img src="images/logo.svg" alt="morohands" />
+            <h1>
+                <picture>
+                    <source srcset="./images/logo_sp.svg" media="(max-width: 767px)">
+                    <img src="./images/logo.svg" alt="morohands" />
+                </picture>
             </h1>
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
+                    <li class="li_bottomline"><a href="">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="">できること</a></li>
                     <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_leftline"><a href="">連絡ください</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="main_visual">
-        <img src="images/top_main2.jpg" alt="メイン画像">
+    <div class="main_visual_pc">
+        <img src="./images/top_main2.jpg" alt="メイン画像">
         <p>最近、どう？<br>
             <span>
                 困ってへん？
             </span>
+        </p>
+    </div>
+    <div class="main_visual_sp">
+        <img src="./images/sp_main2.jpg" alt="メイン画像">
+        <p class="vertical_1">最近、どう？</p>
+        <p class="vertical_2">
+            困ってへん？
         </p>
     </div>
     <div class="main_copy">
@@ -51,7 +62,7 @@
     <main>
         <section class="content_about about_top" id="about">
             <div class="about_top_left">
-                <img src="images/top_aboutme1.jpg" alt="わたしのこと">
+                <img src="./images/top_aboutme1.jpg" alt="わたしのこと">
             </div>
             <div class="about_top_right">
                 <h2 class="title_middle underline">わたしのこと</h2>
@@ -120,7 +131,11 @@
         <section class="content_contact" id="contact">
             <h2 class="title_middle underline_left">連絡ください</h2>
             <div>
-                <img src="images/pc_contact1.jpg" alt="お問い合わせ">
+                <picture>
+                    <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
+                    <img src="./images/pc_contact1.jpg" alt="お問い合わせ">
+                </picture>
+
                 <p>何かできること、ある？</p>
             </div>
             <button>
@@ -132,14 +147,16 @@
         <div class="footer_wrap">
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
+                    <li class="li_bottomline"><a href="">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="">できること</a></li>
                     <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_leftline"><a href="">連絡ください</a></li>
                 </ul>
             </nav>
             <div class="pc_nav_copyright">
-                <img src="images/note.svg" alt="note">
+                <div>
+                    <img src="images/note.svg" alt="note">
+                </div>
                 <small>&copy; MORO HANDS</small>
             </div>
         </div>
