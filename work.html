@@ -22,14 +22,18 @@
 <body>
     <header>
         <div class="header_wrap">
-            <h1><img src="images/logo.svg" alt="morohands" />
+            <h1>
+                <picture>
+                    <source srcset="./images/logo_sp.svg" media="(max-width: 767px)">
+                    <img src="./images/logo.svg" alt="morohands" />
+                </picture>
             </h1>
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
-                    <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_bottomline"><a href="./about.html">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="./skill.html">できること</a></li>
+                    <li><a href="./work.html">つくったもの</a></li>
+                    <li class="li_leftline"><a href="./form.html">連絡ください</a></li>
                 </ul>
             </nav>
         </div>
@@ -89,26 +93,29 @@
                 <p class="message">サラリーマンなので、お出しする実績は少ないですが…これからドンドン増やしていきますね。</p>
             </div>
         </div>
-
         <section class="contact_right content">
             <h3 class="title_middle contact_underline_right">連絡ください</h3>
             <div class="contact_detail">
-                <img src="images/pc_contact2.jpg" alt="お問い合わせ">
+                <picture>
+                    <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
+                    <img src="images/pc_contact2.jpg" alt="お問い合わせ">
+                </picture>
                 <p class="contact_text_right">つくったもの、どうだった？</p>
             </div>
             <button class="button_right">
                 お手伝いできたらいいねんけど</button>
         </section>
 
+
     </main>
     <footer>
         <div class="footer_wrap">
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
-                    <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_bottomline"><a href="./about.html">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="./skill.html">できること</a></li>
+                    <li><a href="./work.html">つくったもの</a></li>
+                    <li class="li_leftline"><a href="./form.html">連絡ください</a></li>
                 </ul>
             </nav>
             <div class="pc_nav_copyright">

@@ -857,8 +857,7 @@ a:hover::after {
 }
 
 
-
-/* スキルのスキルの部分 */
+/* スキルのスキルの部分【PC】 */
 
 .skill_box1,
 .skill_box2 {
@@ -897,6 +896,7 @@ a:hover::after {
 
 .skill_box_long {
     width: 73%;
+    height: 57px;
     padding-left: 2%;
     box-sizing: border-box;
     background-image: url("../images/skill_backlong_pc.svg");
@@ -918,7 +918,85 @@ a:hover::after {
     /* 中央に配置 */
 }
 
+/* スキルのスキルの部分【PC】 */
+
+/* スキルのスキルの部分【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .skill_box1,
+    .skill_box2 {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        height: 50px;
+        padding: 0 7%;
+        align-items: center;
+    }
+
+    .skill_box1 {
+        margin-top: 70px;
+        height: 50px;
+    }
+
+    .skill_box2 {
+        margin-top: 250px;
+    }
+
+    .skill_box_title {
+        width: 100%;
+        text-align: center;
+        /* margin-bottom: 30px; */
+    }
+
+    .skill_box_long,
+    .skill_box_small {
+        display: block;
+        /* FlexをONにする */
+        /* justify-content: center; */
+        /* 横中央 */
+        /* align-items: center; */
+        /* 縦中央 */
+        /* border: solid 2px #330000; */
+        height: 100%;
+        text-align: center;
+    }
+
+    .skill_box_long {
+        width: 80%;
+        height: 100%;
+        margin: 30px auto;
+        padding-left: 0%;
+        /* box-sizing: border-box; */
+        background-image: url("../images/skill_backlong_sp.svg");
+        background-size: 70%;
+        /* background-repeat: no-repeat; */
+        /* 繰り返しなし */
+        /* background-position: center; */
+        /* 中央に配置 */
+    }
+
+    .skill_box_small {
+        width: 80%;
+        margin: 30px auto;
+        gap: 0;
+        /* background-image: url("../images/skill_back.svg"); */
+        background-size: 40%;
+        /* background-repeat: no-repeat; */
+        /* 繰り返しなし */
+        /* background-position: center; */
+        /* 中央に配置 */
+    }
+}
+
+/* スキルのスキルの部分【SP】 */
+
 /* 各つくったものページの部分 */
+
+/* .works_body {
+    overflow-y: hidden;
+} */
+/* 質問するところ…javascriptだけ触ったらできた */
 
 .works {
     display: flex;
@@ -1027,15 +1105,22 @@ a:hover::after {
 }
 
 .modal-content {
-    max-width: 45vw;
-    /* 画面横幅の60%まで拡大 */
+    width: 100%;
     height: auto;
     /* 高さは自動調整 */
     display: block;
-    margin: 0 auto;
+
 }
 
-.modal .close {
+.modal-wrap {
+    max-width: 45vw;
+    /* 画面横幅の60%まで拡大 */
+    margin: 0 auto;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* .modal .close {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -1043,7 +1128,7 @@ a:hover::after {
     color: white;
     cursor: pointer;
     z-index: 10000;
-}
+} */
 
 /* 閉じるボタン */
 .close {
@@ -1122,7 +1207,7 @@ a:hover::after {
     text-align: center;
 }
 
-/* 連絡ください */
+/* 連絡くださいの部分【PC】 */
 
 .contact_right {
     padding-left: 15%;
@@ -1177,6 +1262,8 @@ a:hover::after {
     left: -7%;
 }
 
+/* 上と下同じここのところ要確認 */
+
 .contact_text_right {
     left: -7%;
 }
@@ -1188,6 +1275,75 @@ a:hover::after {
 .button_left {
     margin: 50px 0 50px auto;
 }
+
+/* 連絡くださいの部分【PC】 */
+
+/* 連絡くださいの部分【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .contact_right {
+        padding-left: 15%;
+    }
+
+    .contact_left {
+        padding-left: 15%;
+    }
+
+    .contact_detail {
+        margin-top: 40px;
+        position: relative;
+    }
+
+    .contact_detail img {
+        display: block;
+        width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
+        max-width: none;
+    }
+
+    .contact_underline_right {
+        margin: 0 0 30px 0;
+        position: relative;
+    }
+
+    /* .contact_underline_right::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -15px;
+        width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
+        height: 2px;
+        background-color: #ffcc33;
+    } */
+
+    .contact_text_right,
+    .contact_text_left {
+        width: 100%;
+        bottom: 10%;
+        left: 0;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .contact_text_left {
+        left: 0;
+    }
+
+    .contact_text_right {
+        left: 0;
+    }
+
+    .button_right {
+        margin: 50px auto 50px auto;
+    }
+
+    .button_left {
+        margin: 50px auto 50px auto;
+    }
+
+}
+
+/* 連絡くださいの部分【SP】 */
 
 /* トップページの「連絡ください」【PC】*/
 
@@ -1236,11 +1392,12 @@ a:hover::after {
     }
 
     #contact p {
-        position: absolute;
+        width: 100%;
         bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: -7%;
         font-size: 24px;
+        text-align: center;
     }
 
     #contact .underline_left::after {

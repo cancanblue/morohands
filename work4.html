@@ -22,14 +22,18 @@
 <body>
     <header>
         <div class="header_wrap">
-            <h1><img src="images/logo.svg" alt="morohands" />
+            <h1>
+                <picture>
+                    <source srcset="./images/logo_sp.svg" media="(max-width: 767px)">
+                    <img src="./images/logo.svg" alt="morohands" />
+                </picture>
             </h1>
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
-                    <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_bottomline"><a href="./about.html">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="./skill.html">できること</a></li>
+                    <li><a href="./work.html">つくったもの</a></li>
+                    <li class="li_leftline"><a href="./form.html">連絡ください</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,7 +71,9 @@
             <!-- モーダルは外に出す -->
             <div id="modal" class="modal">
                 <span class="close">&times;</span>
-                <img class="modal-content" id="modalImage">
+                <div class="modal-wrap">
+                    <img class="modal-content" id="modalImage">
+                </div>
             </div>
         </section>
 
@@ -86,10 +92,10 @@
         <div class="footer_wrap">
             <nav class="pc_nav">
                 <ul>
-                    <li><a href="">わたしのこと</a></li>
-                    <li><a href="">できること</a></li>
-                    <li><a href="">つくったもの</a></li>
-                    <li><a href="">連絡ください</a></li>
+                    <li class="li_bottomline"><a href="./about.html">わたしのこと</a></li>
+                    <li class="li_bottomline li_leftline"><a href="./skill.html">できること</a></li>
+                    <li><a href="./work.html">つくったもの</a></li>
+                    <li class="li_leftline"><a href="./form.html">連絡ください</a></li>
                 </ul>
             </nav>
             <div class="pc_nav_copyright">
@@ -110,16 +116,19 @@
                 const modalSrc = block.dataset.modal;
                 modalImg.src = modalSrc;
                 modal.style.display = "block";
+                document.body.style.overflowY = "hidden"
             });
         });
 
         closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
+            document.body.style.overflowY = "auto"
         });
 
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
+                document.body.style.overflowY = "auto"
             }
         });
     </script>
