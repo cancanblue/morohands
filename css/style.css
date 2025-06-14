@@ -41,12 +41,12 @@ a::after {
     /*アンダーラインが現れ始める位置（aタグの下辺からの高さ）*/
     opacity: 0;
     /* visibility: hidden; */
-    transition: 0.1s;
+    transition: 0.2s;
 }
 
 a:hover::after {
     /* visibility: visible; */
-    bottom: -3px;
+    bottom: -4px;
     /*アニメーションが止まる位置*/
     opacity: 1;
 }
@@ -232,7 +232,8 @@ a:hover::after {
 
 /* コンテンツ幅【PC】 */
 
-.content {
+.content,
+.content_1st {
     max-width: 1000px;
     padding: 0 10px;
     margin: 200px auto 0 auto;
@@ -271,12 +272,20 @@ a:hover::after {
 
 @media screen and (max-width: 767px) {
 
-    .content {
+    .content,
+    .content_1st {
         max-width: 85%;
         padding: 0 7%;
-        margin: 150px auto 0 auto;
         position: relative;
         /* box-sizing: border-box; */
+    }
+
+    .content_1st {
+        margin: 90px auto 0 auto;
+    }
+
+    .content {
+        margin: 150px auto 0 auto;
     }
 
     .content_about {
@@ -296,12 +305,12 @@ a:hover::after {
     }
 
     .content_works {
-        max-width: 1000px;
-        padding: 0 10px;
-        margin: 150px auto 0 auto;
-        position: relative;
+        /* max-width: 1000px;
+        padding: 0 10px; */
+        margin: 100px auto 0 auto;
+        /* position: relative;
         text-align: center;
-        /* box-sizing: border-box; */
+        box-sizing: border-box; */
     }
 }
 
@@ -340,7 +349,8 @@ a:hover::after {
     transform: translateY(-50%);
 }
 
-.title_middle {
+.title_middle,
+.title_about_middle {
     font-size: 40px;
     text-align: center;
     font-weight: normal;
@@ -357,7 +367,7 @@ a:hover::after {
     text-align: center;
     font-size: 18px;
     margin: 40px 0 50px 0;
-    /* スキルページのサブタイトル */
+    /* わたしのこと/夢がある＆スキルページのサブタイトル */
 }
 
 .works_title {
@@ -374,14 +384,14 @@ a:hover::after {
 @media screen and (max-width: 767px) {
 
     .title_large {
-        margin-top: 120px;
-        margin-left: 7%;
-        font-size: 60px;
-        font-family: "kinto-sans", sans-serif;
+        margin-top: 80px;
+        /*margin-left: 7%; */
+        font-size: 45px;
+        /* font-family: "kinto-sans", sans-serif;
         font-weight: 400;
         font-style: normal;
         position: relative;
-        display: inline-block;
+        display: inline-block; */
     }
 
     .title_large::before {
@@ -404,10 +414,13 @@ a:hover::after {
         transform: translateY(-50%);
     }
 
-    .title_middle {
+    .title_middle,
+    .title_about_middle {
         font-size: 32px;
-        text-align: center;
-        font-weight: normal;
+    }
+
+    .title_about_middle {
+        text-align: left;
     }
 
     .title_small {
@@ -419,14 +432,14 @@ a:hover::after {
 
     .subtitle {
         text-align: center;
-        font-size: 18px;
+        font-size: 16px;
         margin: 40px 0 50px 0;
         /* スキルページのサブタイトル */
     }
 
     .works_title {
         text-align: left;
-        font-size: 36px;
+        font-size: 32px;
         font-weight: bold;
         /* 各作品ページのh2 */
     }
@@ -435,7 +448,8 @@ a:hover::after {
 
 /* タイトル関係【SP】 */
 
-/* アンダーライン関係 */
+/* アンダーライン関係【PC】 */
+
 .underline,
 .about_underline_right,
 .about_underline_left {
@@ -454,26 +468,12 @@ a:hover::after {
     background-color: #ffcc33;
 }
 
-/* アンダーライン関係【SP】 */
-
-@media screen and (max-width: 767px) {
-    .underline::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -15px;
-        width: calc(100% - 10px + (100vw - 100%) / 2);
-    }
-}
-
-/* アンダーライン関係【SP】 */
-
 .about_underline_right::after {
     content: '';
     position: absolute;
     bottom: -15px;
     left: 0;
-    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
+    width: calc(100% + (100vw - (100% * (100 / 60)))/2);
     height: 2px;
     background-color: #ffcc33;
 }
@@ -518,7 +518,48 @@ a:hover::after {
     background-color: #ffcc33;
 }
 
-/* トップのわたしのこと【PC】 */
+/* アンダーライン関係【PC】 */
+
+/* アンダーライン関係【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -15px;
+        width: calc(100% - 10px + (100vw - 100%) / 2);
+    }
+
+    .about_underline_right,
+    .about_underline_left {
+        margin: 30px 0 20px 0;
+        position: relative;
+        display: inline-block;
+        width: calc(calc(100% - 10px + (100vw - 100%) / 2))
+    }
+
+    .about_underline_right::after {
+        /* content: '';
+        position: absolute;
+        bottom: -15px; */
+        left: 0;
+        width: calc(100% - 10px + (100vw - 100%) / 2);
+    }
+
+    .about_underline_left::after {
+        /* content: '';
+        position: absolute;
+        bottom: -15px; */
+        left: 0;
+        width: calc(100% + (100vw - 100%) / 2);
+    }
+}
+
+/* アンダーライン関係【SP】 */
+
+/* トップ（index）のわたしのこと【PC】 */
 
 #about h2 {
     text-align: left;
@@ -548,15 +589,15 @@ a:hover::after {
     width: 40%;
 }
 
-/* トップのわたしのこと【PC】 */
+/* トップ（index）のわたしのこと【PC】 */
 
 
-/* トップのわたしのこと【SP】 */
+/* トップ（index）のわたしのこと【SP】 */
 
 @media screen and (max-width: 767px) {
 
     #about h2 {
-        text-align: center;
+        text-align: left;
         width: 100%;
         margin-top: 50px;
     }
@@ -584,10 +625,21 @@ a:hover::after {
     }
 }
 
-/* トップのわたしのこと【SP】 */
+/* トップ（index）のわたしのこと【SP】 */
 
 
-/* わたしのこと */
+/* わたしのこと【PC】 */
+
+/* PC版表示 */
+.about_hobby_wrap_pc {
+    display: block;
+
+}
+
+/* SP版非表示 */
+.about_hobby_wrap_sp {
+    display: none;
+}
 
 .about_main h3,
 .about_dream h3,
@@ -641,7 +693,90 @@ a:hover::after {
     text-align: center;
 }
 
-/* 「わたしのことの」のモーダルウィンドウ */
+/* わたしのこと【PC】 */
+
+/* わたしのこと【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .about_dream_left h3 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about_top_text,
+    .about_dream_text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .about_dream_text {
+        margin-top: 50px;
+    }
+
+    .about_main_left {
+        width: 100%;
+    }
+
+    .about_main_left img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about_main_right {
+        width: 100%;
+    }
+
+    .about_dream {
+        width: 100%;
+    }
+
+    .about_dream_left {
+        width: 100%;
+    }
+
+    .about_dream_right {
+        width: 100%;
+    }
+
+    .about_dream_right img {
+        display: block;
+        width: 100vw;
+        margin: 0 calc(50% - 50vw);
+        max-width: none;
+    }
+
+    /* SP版表示 */
+    .about_hobby_wrap_sp {
+        display: block;
+        margin-top: -20px;
+    }
+
+    /* PC版非表示 */
+    .about_hobby_wrap_pc {
+        display: none;
+    }
+
+    .about_hobby_sp {
+        /* display: flex; */
+        flex-wrap: wrap;
+    }
+
+    .about_hobby li {
+        width: 50%;
+        margin-top: 60px;
+        /* position: relative; */
+        /* text-align: center; */
+    }
+
+}
+
+/* わたしのこと【SP】 */
+
+
+/* 「わたしのこと」のモーダルウィンドウ【PC】 */
+
 .open-button,
 .close-button {
     width: 20px;
@@ -714,6 +849,88 @@ a:hover::after {
     box-sizing: border-box;
 }
 
+/* 「わたしのこと」のモーダルウィンドウ【PC】 */
+
+/* 「わたしのこと」のモーダルウィンドウ【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    /* .open-button,
+    .close-button {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #330000;
+        color: white;
+        background-image: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        box-shadow: none;
+    } */
+
+    .open-button {
+        /* position: absolute;
+        bottom: 22%; */
+        right: 19%;
+    }
+
+    .dialog {
+        &::backdrop {
+            background-color: rgba(0 0 0 / 0.8);
+        }
+
+        width: 510px;
+        height: 100%;
+        padding:15px;
+        border: solid 2px hsl(45, 100%, 60%);
+        box-sizing: border-box;
+        border-radius: 2%;
+    }
+
+    .dialog h2 {
+        margin: 20px 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .dialog p {
+        text-align: justify;
+        line-height: 1.6;
+        padding: 0 8px;
+    }
+
+    .dialog_img_wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dialog_img {
+        position: relative;
+        display: block;
+        /* インライン画像をブロック化 */
+    }
+
+    .dialog_img_wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: solid 1px hsl(45, 100%, 60%);
+        transform: translate(5px, 5px);
+        /* ずらす */
+        pointer-events: none;
+        /* 擬似要素がクリックを妨げないようにする */
+        box-sizing: border-box;
+    }
+
+}
+
+/* 「わたしのこと」のモーダルウィンドウ【SP】 */
+
 
 /* できること・つくったもの・わたしのこと関係【PC】 */
 
@@ -748,17 +965,18 @@ a:hover::after {
 
 .skill-work p {
     line-height: 1.5;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .work_text {
     text-align: center;
 }
 
+.work_text2-1,
 .work_text2 {
     text-align: center;
     margin-top: 30px;
-    /* マージンあり */
+    /* 2-1はPCの時マージンあり */
 }
 
 /* #skill li {
@@ -768,7 +986,7 @@ a:hover::after {
 #work li {
     width: 29%;
     cursor: pointer;
-    /* トップページの「作ったもの」のところ */
+    /* トップページ（index）の「作ったもの」のところ */
 }
 
 /* できること・つくったもの・わたしのこと関係【PC】 */
@@ -777,15 +995,18 @@ a:hover::after {
 
 @media screen and (max-width: 767px) {
 
-    .about_hobby ul,
+    .about_hobby ul {
+        display: flex;
+    }
+
     .skill-work ul {
         display: block;
     }
 
     .work_list {
-        display: flex;
-        gap: 8%;
-        justify-content: flex-start;
+        display: block;
+        /* gap: 8%;
+        justify-content: flex-start; */
         /* 左寄せ */
     }
 
@@ -797,21 +1018,26 @@ a:hover::after {
     .work_list img,
     .skill-work img {
         display: block;
-        margin: 70px auto 0;
+        margin: 100px auto 0 auto;
         width: 90%;
         height: auto;
     }
 
     .work_list img {
-        margin-top: 60px;
+        margin-top: 150px;
     }
 
     .skill-work p {
         text-align: center;
     }
 
-    .work_text {
+    /* .work_text {
         text-align: center;
+    } */
+
+    .work_text2-1 {
+        margin-top: -20px;
+        /* SPの時マージンなくす */
     }
 
     .work_text2 {
@@ -842,7 +1068,7 @@ a:hover::after {
     /* 左右のマージンを自動で均等に */
     border: none;
     color: #330000;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: normal;
     /* 影を追加 */
@@ -857,7 +1083,7 @@ a:hover::after {
 }
 
 
-/* スキルのスキルの部分【PC】 */
+/* スキル（skill）のスキルの部分【PC】 */
 
 .skill_box1,
 .skill_box2 {
@@ -896,9 +1122,8 @@ a:hover::after {
 
 .skill_box_long {
     width: 73%;
-    height: 57px;
-    padding-left: 2%;
-    box-sizing: border-box;
+    height: 50px;
+
     background-image: url("../images/skill_backlong_pc.svg");
     background-size: 80%;
     background-repeat: no-repeat;
@@ -918,9 +1143,13 @@ a:hover::after {
     /* 中央に配置 */
 }
 
-/* スキルのスキルの部分【PC】 */
+.sp_br {
+    display: none;
+}
 
-/* スキルのスキルの部分【SP】 */
+/* スキル（skill）のスキルの部分【PC】 */
+
+/* スキル（skill）のスキルの部分【SP】 */
 
 @media screen and (max-width: 767px) {
 
@@ -929,19 +1158,18 @@ a:hover::after {
         display: block;
         font-weight: bold;
         font-size: 16px;
-        height: 50px;
+        height: auto;
         padding: 0 7%;
         align-items: center;
     }
 
     .skill_box1 {
-        margin-top: 70px;
-        height: 50px;
+        margin-top: 100px;
     }
 
-    .skill_box2 {
+    /* .skill_box2 {
         margin-top: 250px;
-    }
+    } */
 
     .skill_box_title {
         width: 100%;
@@ -951,20 +1179,17 @@ a:hover::after {
 
     .skill_box_long,
     .skill_box_small {
-        display: block;
+        display: flex;
         /* FlexをONにする */
-        /* justify-content: center; */
+        justify-content: center;
         /* 横中央 */
-        /* align-items: center; */
-        /* 縦中央 */
-        /* border: solid 2px #330000; */
-        height: 100%;
-        text-align: center;
+        align-items: center;
+        /* 縦中央*/
+        height: 50px;
     }
 
     .skill_box_long {
         width: 80%;
-        height: 100%;
         margin: 30px auto;
         padding-left: 0%;
         /* box-sizing: border-box; */
@@ -974,6 +1199,8 @@ a:hover::after {
         /* 繰り返しなし */
         /* background-position: center; */
         /* 中央に配置 */
+        text-align: center;
+        height: 70px;
     }
 
     .skill_box_small {
@@ -987,16 +1214,15 @@ a:hover::after {
         /* background-position: center; */
         /* 中央に配置 */
     }
+
+    .sp_br {
+        display: block;
+    }
 }
 
-/* スキルのスキルの部分【SP】 */
+/* スキル（skill）のスキルの部分【SP】 */
 
-/* 各つくったものページの部分 */
-
-/* .works_body {
-    overflow-y: hidden;
-} */
-/* 質問するところ…javascriptだけ触ったらできた */
+/* 各つくったものページの部分【pc】 */
 
 .works {
     display: flex;
@@ -1011,6 +1237,7 @@ a:hover::after {
     opacity: 0.5;
 }
 
+/* 各つくったものページのアンダーライン */
 .works::after {
     content: '';
     position: absolute;
@@ -1019,12 +1246,11 @@ a:hover::after {
     width: calc(100% - 10px + (100vw - 100%) / 2);
     height: 1px;
     background-color: #330000;
-    /* 各つくったものページのアンダーライン */
 }
 
+/* 下の画像が1つの場合 */
 .works_sub1 {
     margin: 90px 0 25px 0;
-    /* 下の画像が1つの場合 */
 }
 
 .works_sub1 img {
@@ -1032,12 +1258,12 @@ a:hover::after {
     height: auto;
 }
 
+/* 下の画像が2つの場合 */
 .works_sub2 {
     display: flex;
     justify-content: space-between;
     margin: 90px 0 25px 0;
     padding: 0 5%;
-    /* 下の画像が2つの場合 */
 }
 
 .works_sub2 img {
@@ -1045,19 +1271,26 @@ a:hover::after {
     height: auto;
 }
 
+.works_sub2 img:first-child {
+    margin-bottom: 50px;
+}
 
+/* 各作品のモーダルウィンドウボタンのところ */
+
+/* クリックするが1つの場合 */
 .works_click1 {
     width: 19%;
     margin: 10px 0 0 72%;
-    /* クリックするが1つの場合 */
+
 }
 
+/* クリックするが2つの場合 */
 .works_click2 {
     width: 38%;
     display: flex;
     margin: 10px 0 0 65%;
     gap: 30px;
-    /* クリックするが2つの場合 */
+
 }
 
 .works_click1 p,
@@ -1065,7 +1298,6 @@ a:hover::after {
     font-size: 12px;
 }
 
-/* クリックブロックのスタイル */
 .click-block {
     text-align: center;
     cursor: pointer;
@@ -1083,7 +1315,7 @@ a:hover::after {
     cursor: pointer;
 }
 
-/* つくったもののモーダルウィンドウ関係 */
+/* ↓つくったもののモーダルウィンドウ関係 */
 
 .modal {
     position: fixed;
@@ -1120,16 +1352,6 @@ a:hover::after {
     overflow-y: scroll;
 }
 
-/* .modal .close {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-} */
-
 /* 閉じるボタン */
 .close {
     position: absolute;
@@ -1142,31 +1364,131 @@ a:hover::after {
 
 /* ↑つくったもののモーダルウィンドウ関係 */
 
+
 .works_img1 {
     padding: 0 10%;
     box-sizing: border-box;
-    /* 上の画像のサイズ調節 */
 }
 
+/* 上の画像のサイズ調節 */
 .works_img2 {
     padding: 0 15%;
     box-sizing: border-box;
-    /* 上の画像のサイズ調節 */
 }
 
-
+/* 作品の説明のところ */
 #works_text {
     margin-left: 8%;
+    margin-top: 60px;
     font-size: 16px;
     text-align: left;
-    /* 作品の説明のところ */
 }
 
 #works_text li {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
-/* 下層ページのメッセージの部分 */
+/* 各つくったものページの部分【pc】 */
+
+/* 各つくったものページの部分【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .works {
+        display: block;
+        /* display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin: 120px 10% 40px 0;
+        position: relative; */
+    }
+
+    .works p {
+        font-size: 16px;
+        text-align: left;
+        position: absolute;
+        top: 60px;
+    }
+
+    /* 各つくったものページのアンダーライン */
+    /* .works::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -15px;
+        width: calc(100% - 10px + (100vw - 100%) / 2);
+        height: 1px;
+        background-color: #330000;
+    } */
+
+    /* 下の画像が1つの場合 */
+    .works_sub1 {
+        margin: 90px 0 25px 0;
+    }
+
+    .works_sub1 img {
+        width: 70%;
+        height: auto;
+
+    }
+
+    .works_sub2 {
+        display: block;
+        margin: 50px 0 25px 0;
+        padding-top: 0;
+        /* 下の画像が2つの場合 */
+    }
+
+    .works_sub2 img {
+        width: 70%;
+        height: auto;
+    }
+
+    /* 各作品のモーダルウィンドウボタンのところ */
+
+    .works_click1 {
+        width: 35%;
+        margin: 60px auto 0 auto;
+        /* クリックするが1つの場合 */
+    }
+
+    .works_click2 {
+        width: 70%;
+        /* display: flex; */
+        justify-content: space-between;
+        margin: 60px auto 0 auto;
+        gap: 0;
+        /* クリックするが2つの場合 */
+    }
+
+    .works_click1 p,
+    .works_click2 p {
+        font-size: 12px;
+    }
+
+    .click-block {
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        /* なめらかに変化 */
+    }
+
+    .click-block img {
+        width: 100%;
+    }
+
+    .click-block:hover {
+        transform: scale(1.1);
+        /* 1.1倍に拡大 */
+        cursor: pointer;
+    }
+
+}
+
+/* 各つくったものページの部分【SP】 */
+
+
+/* 下層ページのメッセージの部分【pc】 */
 
 .message_right {
     margin-top: 230px;
@@ -1207,6 +1529,54 @@ a:hover::after {
     text-align: center;
 }
 
+/* 下層ページのメッセージの部分【pc】 */
+
+/* 下層ページのメッセージの部分【SP】 */
+
+@media screen and (max-width: 767px) {
+
+    .message_right,
+    .message_left {
+        margin-top: 300px;
+        /* text-align: center; */
+    }
+
+    .message_right img,
+    .message_left img {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 25%;
+
+    }
+
+    .message_left img {
+
+        left: 25%;
+
+    }
+
+    .message_right>div,
+    .message_left div {
+        position: relative;
+        display: inline-block;
+    }
+
+    .message {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 2.0;
+        text-align: left;
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+}
+
+/* 下層ページのメッセージの部分【SP】 */
+
 /* 連絡くださいの部分【PC】 */
 
 .contact_right {
@@ -1236,12 +1606,17 @@ a:hover::after {
     max-width: none;
 }
 
-.contact_underline_right {
+/* _right は…PCでは右からSPでも右から */
+/* _left は…PCでは右からSPでは左から */
+
+.contact_underline_right,
+.contact_underline_left {
     margin: 0 0 30px 0;
     position: relative;
 }
 
-.contact_underline_right::after {
+.contact_underline_right::after,
+.contact_underline_left::after {
     content: '';
     position: absolute;
     left: 0;
@@ -1250,6 +1625,9 @@ a:hover::after {
     height: 2px;
     background-color: #ffcc33;
 }
+
+/* _right は…PCでは右からSPでも右から */
+/* _left は…PCでは右からSPでは左から */
 
 .contact_text_right,
 .contact_text_left {
@@ -1297,24 +1675,35 @@ a:hover::after {
 
     .contact_detail img {
         display: block;
-        width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
+        width: 100vw;
+        margin: 0 calc(50% - 50vw - 7%);
         max-width: none;
     }
 
+    /* PCでは右からSPでも右から */
     .contact_underline_right {
-        margin: 0 0 30px 0;
-        position: relative;
+        margin: 250px 0 30px 0;
     }
 
-    /* .contact_underline_right::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -15px;
-        width: calc(100% - 10px + (100vw - 100% - 15%) / 2);
-        height: 2px;
-        background-color: #ffcc33;
-    } */
+    .contact_underline_left {
+        margin-top: 250px;
+    }
+
+    .contact_underline_right::after {
+        width: calc(100% + (100vw - 100% - 15%) / 2);
+        /* PC版のpadding10px分いらない */
+    }
+
+    /* PCでは右からSPでも右から */
+
+    /* PCでは右からSPでは左から */
+    .contact_underline_left::after {
+        width: 100vw;
+        transform: translateX(-25%);
+
+    }
+
+    /* PCでは右からSPでは左から */
 
     .contact_text_right,
     .contact_text_left {
@@ -1323,6 +1712,7 @@ a:hover::after {
         left: 0;
         font-size: 24px;
         text-align: center;
+
     }
 
     .contact_text_left {
@@ -1331,10 +1721,20 @@ a:hover::after {
 
     .contact_text_right {
         left: 0;
+        width: 100vw;
+        margin: 0 calc(50% - 50vw - 7%);
     }
 
     .button_right {
-        margin: 50px auto 50px auto;
+        position: absolute;
+        left: 50%;
+        /* 親要素から50％左にずらす */
+        transform: translateX(-50%);
+        /* 画面全体から50％右にずらす */
+    }
+
+    .button_right:hover {
+        transform: translate(calc(-50% + 3px), 3px)
     }
 
     .button_left {

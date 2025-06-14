@@ -40,13 +40,13 @@
     </header>
 
     <main>
-        <h2 class="title_large">自己紹介</h2>
+        <h2 class="title_large">わたしのこと</h2>
         <section class="content about_top">
             <div class="about_main_left">
                 <img src="./images/about_main.jpg" alt="わたしのこと">
             </div>
             <div class="about_main_right">
-                <h3 class="title_middle about_underline_right">わたしのこと</h3>
+                <h3 class="title_about_middle about_underline_right">自己紹介</h3>
                 <p class="about_top_text">MORO HANDS<br>
                     名前はもろかなえといいます。
                 </p>
@@ -66,137 +66,256 @@
         <section class="about_hobby content_about">
             <h2 class="title_middle underline_left">多趣味です</h2>
             <p class="subtitle">上手い・下手は別として、いろいろやってます。</p>
-            <ul>
-                <li class="about_hobby_img">
-                    <img src="./images/about_shippo.png" alt="七宝焼">
-                    <h4 class="title_small">七宝焼</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal1">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal1">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
+            <div class="about_hobby_wrap_pc">
+                <ul>
+                    <li>
+                        <img src="./images/about_shippo.png" alt="七宝焼">
+                        <h4 class="title_small">七宝焼</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal1">+</button>
                         </div>
-                        <h2>七宝焼</h2>
-                        <p>20代の頃からお世話になっている、大好きな絵の先生から教えてもらっています。
-                            <br>
-                            初めて七宝焼展に出した作品を紹介しておきます。
-                        </p>
-                        <button>ご紹介できるよう準備中</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-                <li>
-                    <img src="./images/about_color.png" alt="カラーセラピー">
-                    <h4 class="title_small">カラーセラピー</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal2">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal2">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_color.jpg" alt="カラーセラピー" class="dialog_img">
+                        <dialog class="dialog" id="modal1">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
+                            </div>
+                            <h2>七宝焼</h2>
+                            <p>20代の頃からお世話になっている、大好きな絵の先生から教えてもらっています。
+                                <br>
+                                初めて七宝焼展に出した作品を紹介しておきます。
+                            </p>
+                            <button>ご紹介できるよう準備中</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_color.png" alt="カラーセラピー">
+                        <h4 class="title_small">カラーセラピー</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal2">+</button>
                         </div>
-                        <h2>カラーセラピー</h2>
-                        <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時の悩みや想いから浮かぶ気になる色で深堀りしていくセラピーです。
-                            <br>ただいま勉強中＆実践中。
-                        </p>
-                        <button>ご紹介できるよう準備中</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-                <li>
-                    <img src="./images/about_card.png" alt="タロットカード">
-                    <h4 class="title_small">タロットカード</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal3">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal3">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_card.jpg" alt="タロットカード" class="dialog_img">
+                        <dialog class="dialog" id="modal2">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_color.jpg" alt="カラーセラピー" class="dialog_img">
+                            </div>
+                            <h2>カラーセラピー</h2>
+                            <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時の悩みや想いから浮かぶ気になる色で深堀りしていくセラピーです。
+                                <br>ただいま勉強中＆実践中。
+                            </p>
+                            <button>ご紹介できるよう準備中</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_card.png" alt="タロットカード">
+                        <h4 class="title_small">タロットカード</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal3">+</button>
                         </div>
-                        <h2>タロットカード</h2>
-                        <p>正式には「インナーチャイルドカード」と言います。<br>
-                            セラピーの一つで、その時に必要なカードを引き当て、潜在意識レベルに深く刺さる前向きなメッセージに出会えます。<br>
-                            カードの先生の元でセラピストになるための勉強中！
-                        </p>
-                        <button>先生のブログをぜひ♪</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-            </ul>
-            <ul class="about_hobby_2ndrow">
-                <li>
-                    <img src="./images/about_camera.png" alt="カメラ">
-                    <h4 class="title_small">カメラ</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal4">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal4">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_camera.jpg" alt="カメラ" class="dialog_img">
+                        <dialog class="dialog" id="modal3">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_card.jpg" alt="タロットカード" class="dialog_img">
+                            </div>
+                            <h2>タロットカード</h2>
+                            <p>正式には「インナーチャイルドカード」と言います。<br>
+                                セラピーの一つで、その時に必要なカードを引き当て、潜在意識レベルに深く刺さる前向きなメッセージに出会えます。<br>
+                                カードの先生の元でセラピストになるための勉強中！
+                            </p>
+                            <button>先生のブログをぜひ♪</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                </ul>
+                <ul class="about_hobby_2ndrow">
+                    <li>
+                        <img src="./images/about_camera.png" alt="カメラ">
+                        <h4 class="title_small">カメラ</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal4">+</button>
                         </div>
-                        <h2>カメラ</h2>
-                        <p>ご縁があって、フィルムカメラを始めました。
-                            いらなくなったカメラをもらい、ちょっとした風景を撮影しています。<br>
-                            フィルムカメラの良さは…現像してみないとわからない。<br>
-                            人生みたいでワクワクしません？
-                        </p>
-                        <button>フィルムカメラを買うならココ！</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-                <li>
-                    <img src="./images/about_guitar.png" alt="ギター">
-                    <h4 class="title_small">ギター</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal5">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal5">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_guitar.jpg" alt="ギター" class="dialog_img">
+                        <dialog class="dialog" id="modal4">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_camera.jpg" alt="カメラ" class="dialog_img">
+                            </div>
+                            <h2>カメラ</h2>
+                            <p>ご縁があって、フィルムカメラを始めました。
+                                いらなくなったカメラをもらい、ちょっとした風景を撮影しています。<br>
+                                フィルムカメラの良さは…現像してみないとわからない。<br>
+                                人生みたいでワクワクしません？
+                            </p>
+                            <button>フィルムカメラを買うならココ！</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_guitar.png" alt="ギター">
+                        <h4 class="title_small">ギター</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal5">+</button>
                         </div>
-                        <h2>ギター</h2>
-                        <p>バンドマンの娘に憧れて？ギターを習っています。<br>
-                            先生はすごい方なのですが、私はめっぽうセンスがない。<br>
-                            レッスンではギターに触っているよりおしゃべりしている時間の方が長いかも…写真はギターの先生の手です。
-                        </p>
-                        <button>先生のYouTubeをぜひ♪</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-                <li>
-                    <img src="./images/about_oshi.png" alt="推し活">
-                    <h4 class="title_small">推し活</h4>
-                    <div class="open">
-                        <button class="open-button" data-target="modal6">+</button>
-                    </div>
-                    <dialog class="dialog" id="modal6">
-                        <div class="dialog_img_wrapper">
-                            <img src="./images/pc_oshi.jpg" alt="推し活" class="dialog_img">
+                        <dialog class="dialog" id="modal5">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_guitar.jpg" alt="ギター" class="dialog_img">
+                            </div>
+                            <h2>ギター</h2>
+                            <p>バンドマンの娘に憧れて？ギターを習っています。<br>
+                                先生はすごい方なのですが、私はめっぽうセンスがない。<br>
+                                レッスンではギターに触っているよりおしゃべりしている時間の方が長いかも…写真はギターの先生の手です。
+                            </p>
+                            <button>先生のYouTubeをぜひ♪</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_oshi.png" alt="推し活">
+                        <h4 class="title_small">推し活</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal6">+</button>
                         </div>
-                        <h2>推し活</h2>
-                        <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。
-                            抽選もひとりの方が当たりやすいので、だいたいボッチ参戦です。<br>
-                            ライブ友達募集中です。
-                        </p>
-                        <button>推し活日記書いてます</button>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-            </ul>
+                        <dialog class="dialog" id="modal6">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_oshi.jpg" alt="推し活" class="dialog_img">
+                            </div>
+                            <h2>推し活</h2>
+                            <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。
+                                抽選もひとりの方が当たりやすいので、だいたいボッチ参戦です。<br>
+                                ライブ友達募集中です。
+                            </p>
+                            <button>推し活日記書いてます</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                </ul>
+            </div>
+            <!-- スマホの時の表示↓ -->
+            <div class="about_hobby_wrap_sp">
+                <ul class="about_hobby_sp">
+                    <li>
+                        <img src="./images/about_shippo.png" alt="七宝焼">
+                        <h4 class="title_small">七宝焼</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal1">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal1">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
+                            </div>
+                            <h2>七宝焼</h2>
+                            <p>20代の頃からお世話になっている、大好きな絵の先生から教えてもらっています。
+                                <br>
+                                初めて七宝焼展に出した作品を紹介しておきます。
+                            </p>
+                            <button>ご紹介できるよう準備中</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_color.png" alt="カラーセラピー">
+                        <h4 class="title_small">カラーセラピー</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal2">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal2">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_color.jpg" alt="カラーセラピー" class="dialog_img">
+                            </div>
+                            <h2>カラーセラピー</h2>
+                            <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時の悩みや想いから浮かぶ気になる色で深堀りしていくセラピーです。
+                                <br>ただいま勉強中＆実践中。
+                            </p>
+                            <button>ご紹介できるよう準備中</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_card.png" alt="タロットカード">
+                        <h4 class="title_small">タロットカード</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal3">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal3">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_card.jpg" alt="タロットカード" class="dialog_img">
+                            </div>
+                            <h2>タロットカード</h2>
+                            <p>正式には「インナーチャイルドカード」と言います。<br>
+                                セラピーの一つで、その時に必要なカードを引き当て、潜在意識レベルに深く刺さる前向きなメッセージに出会えます。<br>
+                                カードの先生の元でセラピストになるための勉強中！
+                            </p>
+                            <button>先生のブログをぜひ♪</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_camera.png" alt="カメラ">
+                        <h4 class="title_small">カメラ</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal4">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal4">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_camera.jpg" alt="カメラ" class="dialog_img">
+                            </div>
+                            <h2>カメラ</h2>
+                            <p>ご縁があって、フィルムカメラを始めました。
+                                いらなくなったカメラをもらい、ちょっとした風景を撮影しています。<br>
+                                フィルムカメラの良さは…現像してみないとわからない。<br>
+                                人生みたいでワクワクしません？
+                            </p>
+                            <button>フィルムカメラを買うならココ！</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_guitar.png" alt="ギター">
+                        <h4 class="title_small">ギター</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal5">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal5">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_guitar.jpg" alt="ギター" class="dialog_img">
+                            </div>
+                            <h2>ギター</h2>
+                            <p>バンドマンの娘に憧れて？ギターを習っています。<br>
+                                先生はすごい方なのですが、私はめっぽうセンスがない。<br>
+                                レッスンではギターに触っているよりおしゃべりしている時間の方が長いかも…写真はギターの先生の手です。
+                            </p>
+                            <button>先生のYouTubeをぜひ♪</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                    <li>
+                        <img src="./images/about_oshi.png" alt="推し活">
+                        <h4 class="title_small">推し活</h4>
+                        <div class="open">
+                            <button class="open-button" data-target="modal6">+</button>
+                        </div>
+                        <dialog class="dialog" id="modal6">
+                            <div class="dialog_img_wrapper">
+                                <img src="./images/pc_oshi.jpg" alt="推し活" class="dialog_img">
+                            </div>
+                            <h2>推し活</h2>
+                            <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。
+                                抽選もひとりの方が当たりやすいので、だいたいボッチ参戦です。<br>
+                                ライブ友達募集中です。
+                            </p>
+                            <button>推し活日記書いてます</button>
+                            <button class="close-button">×</button>
+                        </dialog>
+                    </li>
+                </ul>
+            </div>
         </section>
         <section class="content about_top">
             <div class="about_dream_left">
                 <h3 class="title_middle about_underline_left">
                     夢があります</h3>
-
                 <p class="about_dream_text">七宝焼の先生は私の人生の恩師です。<br>
                     たくさんの事を学ばせてもらっています。<br>
                     先生は、七宝焼だけでなく絵もたくさん描いておられます。<br>
                     先生には子供はいませんが、それらは先生の子供のようなもの。<br>
                     先生はご自身が亡くなった後、作品たちの行方はどうなるか…とても心配されています。<br>
                     私は、事な先生の、大事な絵を、大事にしてくださる方の手に渡るようお手伝いをしたいと思っています。
-
                     <button class="button_left">
                         開店準備中
                     </button>
@@ -215,9 +334,12 @@
         </div>
 
         <section class="contact_right content">
-            <h3 class="title_middle contact_underline_right">連絡ください</h3>
+            <h3 class="title_middle contact_underline_left">連絡ください</h3>
             <div class="contact_detail">
-                <img src="images/pc_contact2.jpg" alt="お問い合わせ">
+                <picture>
+                    <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
+                    <img src="images/pc_contact2.jpg" alt="お問い合わせ">
+                </picture>
                 <p class="contact_text_right">こんなわたしです。何かできる？</p>
             </div>
             <button class="button_right">
@@ -236,7 +358,9 @@
                 </ul>
             </nav>
             <div class="pc_nav_copyright">
-                <img src="images/note.svg" alt="note">
+                <div>
+                    <img src="images/note.svg" alt="note">
+                </div>
                 <small>&copy; MORO HANDS</small>
             </div>
         </div>

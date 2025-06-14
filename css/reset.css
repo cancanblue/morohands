@@ -56,16 +56,19 @@ body {
 }
 
 button {
-    width: 332px;
+    width: 100%;
+    max-width: 332px;
     height: 42px;
     background-image: url('../images/button.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     display: block;
     /* ブロック要素に */
     margin: 50px auto;
     /* 左右のマージンを自動で均等に */
     border: none;
     color: #330000;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: normal;
     /* 影を追加 */
