@@ -631,17 +631,6 @@ a:hover::after {
 
 /* わたしのこと【PC】 */
 
-/* PC版表示 */
-.about_hobby_wrap_pc {
-    display: block;
-
-}
-
-/* SP版非表示 */
-.about_hobby_wrap_sp {
-    display: none;
-}
-
 .about_main h3,
 .about_dream h3,
 .about_dream_left h3 {
@@ -686,14 +675,23 @@ a:hover::after {
     width: 39%;
 }
 
-.about_hobby_2ndrow {
-    margin-top: 80px;
+.about_hobby_wrap {
+    display: grid;
+    /* width: fit-content; */
+    justify-content: space-between;
+    padding: 0 6%;
+    row-gap: 2em;
+    grid-template-columns: repeat(3, auto);
 }
 
-.about_hobby li {
-    width: 28%;
-    position: relative;
+.about_hobby_wrap li {
+    width: 100%;
+    /* position: relative; */
     text-align: center;
+}
+
+.hobby_contents {
+    position: relative;
 }
 
 .about_button_left {
@@ -756,24 +754,14 @@ a:hover::after {
         max-width: none;
     }
 
-    /* SP版表示 */
-    .about_hobby_wrap_sp {
-        display: block;
-        margin-top: -20px;
-    }
-
-    /* PC版非表示 */
-    .about_hobby_wrap_pc {
-        display: none;
-    }
-
-    .about_hobby_sp {
-        /* display: flex; */
-        flex-wrap: wrap;
+    .about_hobby_wrap {
+        padding: 0;
+        row-gap: normal;
+        grid-template-columns: repeat(2, auto);
     }
 
     .about_hobby li {
-        width: 45%;
+        width: 100%;
         margin-top: 60px;
         /* position: relative; */
         /* text-align: center; */
@@ -807,8 +795,8 @@ a:hover::after {
 
 .open-button {
     position: absolute;
-    bottom: 22%;
-    right: 12%;
+    bottom: 17%;
+    right: 7%;
 }
 
 .dialog {
@@ -883,22 +871,22 @@ a:hover::after {
         box-shadow: none;
     } */
 
-    .open-button {
+    /* .open-button {
         bottom: 23%;
         right: 18%;
-    }
+    } */
 
     .dialog {
-        &::backdrop {
+        /* &::backdrop {
             background-color: rgba(0 0 0 / 0.8);
-        }
+        } */
 
-        width: 510px;
-        height: 100%;
-        padding:15px;
-        border: solid 2px hsl(45, 100%, 60%);
+        width: 350px;
+        /* height: 100%; */
+        padding: 20px;
+        /* border: solid 2px hsl(45, 100%, 60%);
         box-sizing: border-box;
-        border-radius: 2%;
+        border-radius: 2%; */
     }
 
     .dialog h2 {
@@ -907,37 +895,11 @@ a:hover::after {
         font-weight: bold;
     }
 
-    .dialog p {
+    /* .dialog p {
         text-align: justify;
         line-height: 1.6;
         padding: 0 8px;
-    }
-
-    .dialog_img_wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dialog_img {
-        position: relative;
-        display: block;
-        /* インライン画像をブロック化 */
-    }
-
-    .dialog_img_wrapper::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: solid 1px hsl(45, 100%, 60%);
-        transform: translate(5px, 5px);
-        /* ずらす */
-        pointer-events: none;
-        /* 擬似要素がクリックを妨げないようにする */
-        box-sizing: border-box;
-    }
+    } */
 
 }
 
@@ -946,7 +908,6 @@ a:hover::after {
 
 /* できること・つくったもの・わたしのこと関係【PC】 */
 
-.about_hobby ul,
 .skill-work ul {
     display: flex;
     justify-content: space-between;
@@ -1007,9 +968,9 @@ a:hover::after {
 
 @media screen and (max-width: 767px) {
 
-    .about_hobby ul {
+    /* .about_hobby ul {
         display: flex;
-    }
+    } */
 
     .skill-work ul {
         display: block;
@@ -1353,8 +1314,7 @@ a:hover::after {
 }
 
 .modal-wrap {
-    max-width: 45vw;
-    /* 画面横幅の60%まで拡大 */
+    max-width: 50vw;
     margin: 0 auto;
     height: 100%;
     overflow-y: scroll;
@@ -1571,7 +1531,9 @@ a:hover::after {
         transform: translate(-50%, -50%);
     }
 
-
+    .message_thanks img {
+        width: 100%;
+    }
 
     .message {
         width: 50%;
@@ -1582,6 +1544,11 @@ a:hover::after {
         text-align: justify;
         padding: 0 5%;
         box-sizing: border-box;
+    }
+
+    .message_thanks>div {
+        max-width: 350px;
+        width: 80%;
     }
 }
 
@@ -1992,18 +1959,15 @@ textarea.form__input {
         bottom: 20px;
     }
 
-    /* .circle {
+    .circle {
         width: 150px;
         height: 150px;
-        border: solid 1px #ffcc33;
-        border-radius: 50%;
-        background: transparent;
-    } */
+    }
 
     .circle_position {
-        width: 150px;
+        /* width: 150px; */
         position: absolute;
-        top: 150%;
+        top: 82%;
         right: 0;
         z-index: -1;
         /* transform: translateY(-50%); */
