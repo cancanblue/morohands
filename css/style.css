@@ -489,12 +489,31 @@
 }
 
 .about_top_left img {
+    /* width: 100%;
+    height: auto; */
+    position: absolute;
+    /* これで画像が重なる */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    /* 画像が切れてもいい感じにおさめる */
+    opacity: 0;
+    /* 最初は透明 */
+    display: none;
+    /* 最初は非表示 */
+    z-index: 0;
+    /* 重なり順の制御 */
 }
 
 .about_top_left {
     width: 55%;
+
+    height: auto;
+    position: relative;
+    overflow: hidden;
+
 }
 
 .about_top_right {
@@ -516,6 +535,14 @@
     .about_top_left {
         width: 100%;
     }
+
+    /* アニメーションのところで追加 */
+    .about_top_left {
+        max-width: 100%;
+        /* 小さい画面でいっぱいに広げる */
+        aspect-ratio: 1;
+    }
+
 
     .about_top_right {
         width: 100%;
@@ -784,6 +811,45 @@
     margin-top: 30px;
     line-height: 1.5;
 }
+
+/* トップページ（index）の「できること」のところ */
+
+@keyframes shakeOnce {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-10px);
+    }
+
+    40% {
+        transform: translateY(10px);
+    }
+
+    60% {
+        transform: translateY(-6px);
+    }
+
+    80% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 1回揺らす */
+.shake-once {
+    animation: shakeOnce 1.8s ease forwards;
+}
+
+/* ホバーでも揺れる */
+#skill img:hover {
+    animation: shakeOnce 1.8s ease-in-out infinite;
+}
+
 
 /* #skill li {
     width: 28%;

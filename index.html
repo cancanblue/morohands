@@ -7,6 +7,8 @@
     <title>MORO HANDS</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -64,7 +66,9 @@
     <main>
         <section class="content_about about_top" id="about">
             <div class="about_top_left">
-                <img src="./images/top_aboutme1x2.jpg" alt="わたしのこと">
+                <img src="./images/top_aboutme1x2.jpg" alt="わたしのこと" class="fade-img" style="display: block;">
+                <img src="./images/top_aboutme2x2.jpg" alt="わたしのこと" class="fade-img" style="display: none;">
+                <img src="./images/top_aboutme3x2.jpg" alt="わたしのこと" class="fade-img" style="display: none;">
             </div>
             <div class="about_top_right">
                 <h2 class="title_middle underline">わたしのこと</h2>
@@ -164,6 +168,68 @@
             </div>
         </div>
     </footer>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let intervalId;
+            const target = document.querySelector('.about_top_left');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !intervalId) {
+                        intervalId = startSlideshow(); // 表示されたらスタート
+                    } else if (!entry.isIntersecting && intervalId) {
+                        clearInterval(intervalId);     // 消えたら止める
+                        intervalId = null;
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            observer.observe(target);
+
+            function startSlideshow() {
+                const $images = $('.about_top_left .fade-img');
+                let current = 0;
+                $images.hide().css('opacity', 0);
+                $images.eq(current).show().css('opacity', 1);
+
+                return setInterval(function () {
+                    const next = (current + 1) % $images.length;
+                    $images.eq(next).show().css('opacity', 0).animate({ opacity: 1 }, 1200);
+                    $images.eq(current).animate({ opacity: 0 }, 1200, function () {
+                        $(this).hide();
+                    });
+                    current = next;
+                }, 4000);
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('#skill li img');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('shake-once', 'animated');
+                        }, i * 300);
+                        observer.unobserve(entry.target); // 1回だけ実行
+                    }
+                });
+            }, {
+                threshold: 0.5 // 画面に50%以上見えたら発火
+            });
+
+            images.forEach(img => {
+                observer.observe(img);
+            });
+        });
+    </script>
+
 
 
 </body>
