@@ -10,6 +10,15 @@
     padding: 30px 2% 0 1%;
 }
 
+.header_wrap>a {
+    max-width: 450px;
+    width: 42%;
+}
+
+h1 img {
+    width: 100%;
+}
+
 .pc_nav ul {
     display: flex;
     gap: 30px;
@@ -547,6 +556,63 @@
     }
 }
 
+/* トップページ（index）の「できること」のところ */
+@keyframes shakeOnce {
+    0% {
+        /* transform: translateY(0); */
+        transform: translateX(0);
+    }
+
+    30% {
+        /* transform: translateY(-10px); */
+        transform: translateX(-10px);
+    }
+
+    60% {
+        /* transform: translateY(10px); */
+        transform: translateX(10px);
+    }
+
+    /* 60% {
+        transform: translateY(-6px);
+    }
+
+    80% {
+        transform: translateY(6px);
+    } */
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 1回揺らす */
+.shake-once {
+    animation: shakeOnce 1s ease forwards;
+}
+
+/* ホバーでも揺れる */
+/* .page_top #skill img:hover {
+    animation: shakeOnce 1.8s ease-in-out infinite;
+} */
+
+/* トップページ（index）の「つくったもの」のところ */
+#work li {
+    width: 29%;
+    cursor: pointer;
+}
+
+.page_top .skill-work img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.page_top .skill-work img.inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* わたしのこと【PC】 */
 .about_main h3,
 .about_dream h3,
@@ -810,64 +876,7 @@
     line-height: 1.5;
 }
 
-/* トップページ（index）の「できること」のところ */
-@keyframes shakeOnce {
-    0% {
-        transform: translateY(0);
-    }
 
-    20% {
-        transform: translateY(-10px);
-    }
-
-    40% {
-        transform: translateY(10px);
-    }
-
-    60% {
-        transform: translateY(-6px);
-    }
-
-    80% {
-        transform: translateY(6px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* 1回揺らす */
-.shake-once {
-    animation: shakeOnce 1.8s ease forwards;
-}
-
-/* ホバーでも揺れる */
-.page_top #skill img:hover {
-    animation: shakeOnce 1.8s ease-in-out infinite;
-}
-
-
-/* #skill li {
-    width: 28%;
-} */
-
-/* トップページ（index）の「つくったもの」のところ */
-#work li {
-    width: 29%;
-    cursor: pointer;
-}
-
-.page_top .skill-work img {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.page_top .skill-work img.inview {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 
 
@@ -1194,6 +1203,10 @@
     overflow-y: scroll;
 }
 
+.modal.pc .modal-wrap {
+    max-width: 72vw;
+}
+
 /* 閉じるボタン */
 .close {
     position: absolute;
@@ -1288,6 +1301,7 @@
 .message {
     font-size: 16px;
     text-align: center;
+    line-height: 1.7;
 }
 
 .message_right>div,

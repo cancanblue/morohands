@@ -64,7 +64,7 @@
                 </div>
 
                 <!-- PC用 -->
-                <div class="click-block open-modal" data-modal="./images/work6_pc.png">
+                <div class="click-block open-modal pc" data-modal="./images/work6_pc.png">
                     <img src="./images/works_click_pc.svg" alt="PC版画像">
                     <p class="click-text">パソコン版を見る</p>
                 </div>
@@ -88,10 +88,8 @@
                 </picture>
                 <p class="contact_text_right">つくったもの、どうだった？</p>
             </div>
-            <a href="./form.html">
-                <button class="button_right">
-                    お手伝いできたらいいねんけど</button>
-            </a>
+            <button class="button_right" onclick="location.href='./form.html'">
+                お手伝いできたらいいねんけど</button>
         </section>
 
     </main>
@@ -127,18 +125,23 @@
                 modalImg.src = modalSrc;
                 modal.style.display = "block";
                 document.body.style.overflowY = "hidden"
+                if (block.classList.contains('pc')) {
+                    modal.classList.add('pc')
+                }
             });
         });
 
         closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
             document.body.style.overflowY = "auto"
+            modal.classList.remove('pc')
         });
 
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
                 document.body.style.overflowY = "auto"
+                modal.classList.remove('pc')
             }
         });
     </script>

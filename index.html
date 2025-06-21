@@ -85,8 +85,8 @@
                     多趣味です。<br>
                     叶えたい夢があります。
                 </p>
-                <a href="./about.html"><button>
-                        もう少しお話してもいい？</button></a>
+                <button onclick="location.href='./about.html'">
+                    もう少しお話してもいい？</button>
             </div>
 
         </section>
@@ -109,8 +109,8 @@
                     <P>イメージを実際のホームページに！一緒に作り上げていきます。</P>
                 </li>
             </ul>
-            <a href="./skill.html"><button>
-                    他にもできることあるよ！</button></a>
+            <button onclick="location.href='./skill.html'">
+                他にもできることあるよ！</button>
         </section>
         <section class="skill-work content" id="work">
             <h2 class="title_middle underline_right">作ったもの</h2>
@@ -131,8 +131,8 @@
                     <p class="work_text">「カフェ　ホームページ」</P>
                 </li>
             </ul>
-            <a href="./work.html"><button>
-                    もう少し見せてもいい？</button></a>
+            <button onclick="location.href='./work.html'">
+                もう少し見せてもいい？</button>
         </section>
         <section class="content_contact" id="contact">
             <h2 class="title_middle underline_left">連絡ください</h2>
@@ -143,8 +143,8 @@
                 </picture>
                 <p>何かできること、ある？</p>
             </div>
-            <a href="./form.html"><button>
-                    困ってへん？　お話聞くよ？</button></a>
+            <button onclick="location.href='./form.html'">
+                困ってへん？　お話聞くよ？</button>
         </section>
 
     </main>
@@ -172,6 +172,7 @@
 
 
     <script>
+        // わたしのこと
         document.addEventListener('DOMContentLoaded', function () {
             let intervalId;
             const target = document.querySelector('.about_top_left');
@@ -204,10 +205,11 @@
                         $(this).hide();
                     });
                     current = next;
-                }, 4000);
+                }, 3000);
             }
         });
 
+        // できることのゆらゆら
         document.addEventListener("DOMContentLoaded", function () {
             const images = document.querySelectorAll('#skill li img');
 
@@ -229,6 +231,7 @@
             });
         });
 
+        // つくったもののふわっ
         $(function () {
             $('.skill-work img').each(function (index) {
                 $(this).on('inview', function (event, isInView) {
