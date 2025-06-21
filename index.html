@@ -21,7 +21,7 @@
     </script>
 </head>
 
-<body>
+<body class="page_top">
     <header>
         <div class="header_wrap">
             <a href="./index.html">
@@ -116,19 +116,19 @@
             <h2 class="title_middle underline_right">作ったもの</h2>
             <ul>
                 <li>
-                    <img src="./images/top_works1.png" al="WEBバナー">
+                    <img src="./images/top_works1.png" alt="WEBバナー">
                     <h3 class="title_small">WEBバナー</h3>
-                    <P class="work_text">「激旨バーガー新登場」</P>
+                    <p class="work_text">「激旨バーガー新登場」</P>
                 </li>
                 <li>
-                    <img src="./images/top_works2.png" al="WEBデザイン">
+                    <img src="./images/top_works2.png" alt="WEBデザイン">
                     <h3 class="title_small">WEBデザイン</h3>
-                    <P class="work_text">「美容院　ホームページ」</P>
+                    <p class="work_text">「美容院　ホームページ」</P>
                 </li>
                 <li>
-                    <img src="./images/top_works3.png" al="コーディング">
+                    <img src="./images/top_works3.png" alt="コーディング">
                     <h3 class="title_small">コーディング</h3>
-                    <P class="work_text">「カフェ　ホームページ」</P>
+                    <p class="work_text">「カフェ　ホームページ」</P>
                 </li>
             </ul>
             <a href="./work.html"><button>
@@ -199,8 +199,8 @@
 
                 return setInterval(function () {
                     const next = (current + 1) % $images.length;
-                    $images.eq(next).show().css('opacity', 0).animate({ opacity: 1 }, 1200);
-                    $images.eq(current).animate({ opacity: 0 }, 1200, function () {
+                    $images.eq(next).show().css('opacity', 0).animate({ opacity: 1 }, 1000);
+                    $images.eq(current).animate({ opacity: 0 }, 1000, function () {
                         $(this).hide();
                     });
                     current = next;
@@ -221,12 +221,30 @@
                     }
                 });
             }, {
-                threshold: 0.5 // 画面に50%以上見えたら発火
+                threshold: 0.8 // 画面に80%以上見えたら発火
             });
 
             images.forEach(img => {
                 observer.observe(img);
             });
+        });
+
+        $(function () {
+            $('.skill-work img').each(function (index) {
+                $(this).on('inview', function (event, isInView) {
+                    console.log('inview fired', this, isInView);
+                    if (isInView) {
+                        let $img = $(this);
+                        setTimeout(function () {
+                            $img.addClass('inview');
+                            console.log('class added to', $img);
+                        }, index * 200);
+                    }
+                });
+            });
+
+            // 初期スクロールイベントを強制発火（← これがスマホで効くことが多い）
+            $(window).trigger('scroll');
         });
     </script>
 

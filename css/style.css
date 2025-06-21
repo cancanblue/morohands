@@ -509,11 +509,9 @@
 
 .about_top_left {
     width: 55%;
-
     height: auto;
     position: relative;
     overflow: hidden;
-
 }
 
 .about_top_right {
@@ -813,7 +811,6 @@
 }
 
 /* トップページ（index）の「できること」のところ */
-
 @keyframes shakeOnce {
     0% {
         transform: translateY(0);
@@ -846,7 +843,7 @@
 }
 
 /* ホバーでも揺れる */
-#skill img:hover {
+.page_top #skill img:hover {
     animation: shakeOnce 1.8s ease-in-out infinite;
 }
 
@@ -860,6 +857,19 @@
     width: 29%;
     cursor: pointer;
 }
+
+.page_top .skill-work img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.page_top .skill-work img.inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 /* できること・つくったもの・わたしのこと関係【SP】 */
 @media screen and (max-width: 767px) {
@@ -1286,6 +1296,8 @@
     position: relative;
     display: inline-block;
 }
+
+
 
 /* 各ページメッセージの部分【SP】 */
 /* message_thanksはサンクスページの部分 */
