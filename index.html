@@ -43,7 +43,7 @@
         </div>
     </header>
     <div class="main_visual_pc">
-        <!-- <img src="./images/top_main1.jpg" alt="メイン画像"> -->
+        <img src="./images/top_main1.jpg" alt="メイン画像">
         <img src="./images/top_main2.jpg" alt="メイン画像">
         <p>最近、どう？<br>
             <span>
@@ -175,29 +175,25 @@
 
     <script>
 
+        $(document).ready(function () {
+            // 初期状態
+            $('.main_visual_pc img:eq(1)').hide(); // 2枚目の画像は非表示
+            $('.main_visual_pc p').css('visibility', 'hidden'); // 全体のテキスト非表示（高さ保持）
+            $('.main_visual_pc span').hide(); // span（困ってへん？）だけ非表示
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const mainVisual = document.querySelector('.main_visual_pc');
-            const imgs = mainVisual.querySelectorAll('img');
-            const textP = mainVisual.querySelector('p');
-            const span = textP.querySelector('span');
+            // 「最近、どう？」表示（pタグ全体）
+            setTimeout(function () {
+                $('.main_visual_pc p').css('visibility', 'visible').hide().fadeIn(1000);
+            }, 1000); // 1秒後
 
-            // 画像1は初期表示されている前提
-            imgs[1].classList.add('hidden'); // 最初は画像2を非表示
-            span.style.opacity = 0;
-
-            // 1秒後に「最近、どう？」を表示
-            setTimeout(() => {
-                textP.classList.add('show-text');
-            }, 1000);
-
-            // 2.5秒後に画像2と「困ってへん？」を表示
-            setTimeout(() => {
-                imgs[0].classList.add('hidden');
-                imgs[1].classList.remove('hidden');
-                span.classList.add('show-span');
-            }, 2500);
+            // 画像切り替えと「困ってへん？」表示
+            setTimeout(function () {
+                $('.main_visual_pc img:eq(0)').fadeOut(1000); // 1枚目消える
+                $('.main_visual_pc img:eq(1)').fadeIn(1000);  // 2枚目現れる
+                $('.main_visual_pc span').fadeIn(1000);       // 「困ってへん？」出現
+            }, 3000); // 3秒後（＝pが出た2秒後）
         });
+
 
         // わたしのことの画像変化
         document.addEventListener('DOMContentLoaded', function () {
