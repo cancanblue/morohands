@@ -7,6 +7,8 @@
     <title>MORO HANDS／わたしのこと</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -66,7 +68,7 @@
             </div>
         </section>
         <section class="about_hobby content_about">
-            <h2 class="title_middle underline_left">多趣味です</h2>
+            <h2 class="title_middle top_underline_left">多趣味です</h2>
             <p class="subtitle">上手い・下手は別として、いろいろやってます。</p>
             <div>
                 <ul class="about_hobby_wrap">
@@ -243,7 +245,7 @@
 
         <div class="message_left">
             <div>
-                <img src="./images/sp_maru.png" alt="丸いイメージ">
+                <img src="./images/sp_maru.png" alt="丸いイメージ" class="fade-in">
                 <p class="message">そして、もっとおばあちゃんになったら、<br class="br_768-950">スナック「かなえ」をオープンして、大好きな人たちの憩いの場所を作りたい。</p>
             </div>
         </div>
@@ -298,6 +300,24 @@
             button.addEventListener('click', () => {
                 const modal = button.closest('dialog');
                 if (modal) modal.close();
+            });
+        });
+
+        // メッセージの丸画像のところ
+        $(function () {
+            $(window).on('scroll load', function () {
+                $('.fade-in').each(function () {
+                    var $this = $(this);
+                    if ($this.hasClass('show')) return; // すでに表示済みならスキップ
+
+                    var imgPos = $this.offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (scroll + windowHeight > imgPos + 50) {
+                        $this.addClass('show');
+                    }
+                });
             });
         });
     </script>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="js/jquery.inview.min.js"></script> -->
+    <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -168,7 +168,21 @@
                 });
             });
         });
+
+        // 線が伸びる
+        $(window).on('scroll', function () {
+            $('.underline_left, .underline_right').each(function () {
+                const offsetTop = $(this).offset().top;
+                const scrollTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (scrollTop + windowHeight > offsetTop + 100) {
+                    $(this).addClass('show');
+                }
+            });
+        });
     </script>
+
 
 </body>
 

@@ -7,6 +7,8 @@
     <title>MORO HANDS／つくったもの　ウェブバナー4</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -116,6 +118,7 @@
 
 
     <script>
+        // モーダルウィンドウのPC版サイズ調節
         const modal = document.getElementById("modal");
         const modalImg = document.getElementById("modalImage");
         const closeBtn = document.querySelector(".close");
@@ -145,6 +148,22 @@
                 modal.classList.remove('pc')
             }
         });
+    </script>
+
+    <script>
+        // 線が伸びる
+        $(window).on('scroll', function () {
+            $('.works').each(function () {
+                const elemTop = $(this).offset().top;
+                const scroll = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (scroll > elemTop - windowHeight + 100 && !$(this).hasClass('line-animate')) {
+                    $(this).addClass('line-animate');
+                }
+            });
+        });
+
     </script>
 
 </body>

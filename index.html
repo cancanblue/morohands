@@ -43,6 +43,7 @@
         </div>
     </header>
     <div class="main_visual_pc">
+        <!-- <img src="./images/top_main1.jpg" alt="メイン画像"> -->
         <img src="./images/top_main2.jpg" alt="メイン画像">
         <p>最近、どう？<br>
             <span>
@@ -51,6 +52,7 @@
         </p>
     </div>
     <div class="main_visual_sp">
+        <!-- <img src="./images/sp_main1.jpg" alt="メイン画像"> -->
         <img src="./images/sp_main2.jpg" alt="メイン画像">
         <p class="vertical_1">最近、どう？</p>
         <p class="vertical_2">
@@ -91,7 +93,7 @@
 
         </section>
         <section class="skill-work content" id="skill">
-            <h2 class="title_middle underline_left">できること</h2>
+            <h2 class="title_middle top_underline_left">できること</h2>
             <ul>
                 <li>
                     <img src="./images/skill_graphic.svg" alt="グラフィック">
@@ -113,7 +115,7 @@
                 他にもできることあるよ！</button>
         </section>
         <section class="skill-work content" id="work">
-            <h2 class="title_middle underline_right">作ったもの</h2>
+            <h2 class="title_middle top_underline_right">作ったもの</h2>
             <ul>
                 <li>
                     <img src="./images/top_works1.png" alt="WEBバナー">
@@ -135,7 +137,7 @@
                 もう少し見せてもいい？</button>
         </section>
         <section class="content_contact" id="contact">
-            <h2 class="title_middle underline_left">連絡ください</h2>
+            <h2 class="title_middle top_underline_left">連絡ください</h2>
             <div>
                 <picture>
                     <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
@@ -172,7 +174,32 @@
 
 
     <script>
-        // わたしのこと
+
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const mainVisual = document.querySelector('.main_visual_pc');
+            const imgs = mainVisual.querySelectorAll('img');
+            const textP = mainVisual.querySelector('p');
+            const span = textP.querySelector('span');
+
+            // 画像1は初期表示されている前提
+            imgs[1].classList.add('hidden'); // 最初は画像2を非表示
+            span.style.opacity = 0;
+
+            // 1秒後に「最近、どう？」を表示
+            setTimeout(() => {
+                textP.classList.add('show-text');
+            }, 1000);
+
+            // 2.5秒後に画像2と「困ってへん？」を表示
+            setTimeout(() => {
+                imgs[0].classList.add('hidden');
+                imgs[1].classList.remove('hidden');
+                span.classList.add('show-span');
+            }, 2500);
+        });
+
+        // わたしのことの画像変化
         document.addEventListener('DOMContentLoaded', function () {
             let intervalId;
             const target = document.querySelector('.about_top_left');
@@ -209,7 +236,7 @@
             }
         });
 
-        // できることのゆらゆら
+        // 「できること」のゆらゆら
         document.addEventListener("DOMContentLoaded", function () {
             const images = document.querySelectorAll('#skill li img');
 
@@ -231,7 +258,7 @@
             });
         });
 
-        // つくったもののふわっ
+        // 「つくったもの」のふわっ
         $(function () {
             $('.skill-work img').each(function (index) {
                 $(this).on('inview', function (event, isInView) {

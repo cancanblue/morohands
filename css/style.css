@@ -121,6 +121,7 @@ h1 img {
 }
 
 /* メインビジュアル【PC】 */
+
 .main_visual_pc {
     display: block;
     /* PC版表示 */
@@ -363,13 +364,6 @@ h1 img {
         text-align: left;
     }
 
-    /* .title_small {
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        margin: 10px 0 15px 0;
-    } */
-
     /* わたしのこと「多趣味」＆スキルページのサブタイトル */
     .subtitle {
         font-size: 16px;
@@ -424,35 +418,75 @@ h1 img {
     background-color: #ffcc33;
 }
 
-.underline_left {
+/* トップページのできること・つくったものの固定アンダーライン */
+.top_underline_left,
+.top_underline_right {
     margin: 0 0 30px 0;
     position: relative;
 }
 
-.underline_left::after {
+.top_underline_left::after,
+.top_underline_right::after {
     content: '';
     position: absolute;
-    right: 0;
     bottom: -15px;
-    width: calc(100% + (100vw - 100%) / 2);
     height: 2px;
     background-color: #ffcc33;
 }
 
-.underline_right {
-    margin: 0 0 30px 0;
-    position: relative;
+.top_underline_left::after {
+    right: 0;
+    width: calc(100% + (100vw - 100%) / 2);
 }
 
+.top_underline_right::after {
+    left: 0;
+    width: calc(100% - 10px + (100vw - 100%) / 2);
+}
+
+
+/* できること・つくったものの動くアンダーライン */
+.underline_left,
+.underline_right {
+    position: relative;
+    margin: 0 0 30px 0;
+}
+
+/* 共通の初期設定 */
+.underline_left::after,
 .underline_right::after {
     content: '';
     position: absolute;
-    left: 0;
     bottom: -15px;
-    width: calc(100% - 10px + (100vw - 100%) / 2);
     height: 2px;
     background-color: #ffcc33;
+    display: block;
+    /* 追加：幅と高さを効かせる */
+    transform: scaleX(0);
+    /* 初期状態：縮小 */
+    transition: transform 1s ease;
 }
+
+/* 左から右に伸びる（左基点） */
+.underline_right::after {
+    left: 0;
+    width: calc(100% + (100vw - 100%) / 2);
+    transform-origin: right center;
+}
+
+/* 右から左に伸びる（右基点） */
+.underline_left::after {
+    right: 0;
+    width: calc(100% + (100vw - 100%) / 2);
+    transform-origin: left center;
+}
+
+/* アニメーションスタート時 */
+.underline_left.show::after,
+.underline_right.show::after {
+    transform: scaleX(1);
+}
+
 
 /* アンダーライン関係【SP】 */
 @media screen and (max-width: 767px) {
@@ -1049,7 +1083,6 @@ h1 img {
         width: 80%;
         margin: 30px auto;
         gap: 0;
-        /* background-image: url("../images/skill_back.svg"); */
         background-size: 40%;
     }
 
@@ -1073,7 +1106,7 @@ h1 img {
 }
 
 /* 各つくったものページのアンダーライン */
-.works::after {
+/* .works::after {
     content: '';
     position: absolute;
     right: 0;
@@ -1081,7 +1114,34 @@ h1 img {
     width: calc(100% - 10px + (100vw - 100%) / 2);
     height: 1px;
     background-color: #330000;
+} */
+
+.works::after {
+    content: '';
+    position: absolute;
+    left: calc(-1 * (100vw - 1000px) / 2);
+    /* ← ブラウザ左端に合わせる */
+    bottom: -15px;
+    width: 0;
+    /* 初期状態は幅ゼロ */
+    height: 1px;
+    background-color: #330000;
+    transition: width 1.5s ease;
+    transform: translateX(-12%);
+    /* 調整（必要なら） */
 }
+
+.works.line-animate::after {
+    width: 100vw;
+    /* ← アニメーションで全画面幅に伸びる */
+}
+
+@media (max-width: 1000px) {
+    .works::after {
+        left: 0;
+    }
+}
+
 
 /* 下の画像が1つの場合 */
 .works_sub1 {
@@ -1210,9 +1270,9 @@ h1 img {
 /* 閉じるボタン */
 .close {
     position: absolute;
-    top: 20px;
-    right: 35px;
-    font-size: 40px;
+    top: 15px;
+    right: 13px;
+    font-size: 35px;
     color: #fff;
     cursor: pointer;
 }
@@ -1317,6 +1377,20 @@ h1 img {
 
     50% {
         transform: translateY(-58%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes sway {
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%);
+        }
+
+        50% {
+            transform: translate(-50%, -58%);
+        }
     }
 }
 
@@ -1543,7 +1617,7 @@ h1 img {
     font-size: 36px;
 }
 
-#contact .underline_left::after {
+#contact .top_underline_left::after {
     left: 0;
     width: 85%;
 }
