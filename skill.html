@@ -7,6 +7,8 @@
     <title>MORO HANDS／できること</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="js/jquery.inview.min.js"></script> -->
     <script>
         (function (d) {
             var config = {
@@ -108,7 +110,7 @@
         </section>
         <div class="message_right">
             <div>
-                <img src="./images/sp_maru.png" alt="丸いイメージ">
+                <img src="./images/sp_maru.png" alt="丸いイメージ" class="fade-in">
                 <p class="message">どちらかと言えば、オールラウンダーです。やったことないことも、案外できるようになります。</p>
             </div>
         </div>
@@ -148,7 +150,25 @@
         </div>
     </footer>
 
+    <script>
+        // メッセージの丸画像のところ
+        $(function () {
+            $(window).on('scroll load', function () {
+                $('.fade-in').each(function () {
+                    var $this = $(this);
+                    if ($this.hasClass('show')) return; // すでに表示済みならスキップ
 
+                    var imgPos = $this.offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (scroll + windowHeight > imgPos + 50) {
+                        $this.addClass('show');
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

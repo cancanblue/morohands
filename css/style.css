@@ -1289,6 +1289,15 @@ h1 img {
     transform: translateY(-50%);
 }
 
+/* .message_right img {
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: -1;
+} */
+
 .message_left img {
     width: 200px;
     position: absolute;
@@ -1296,6 +1305,35 @@ h1 img {
     left: 0;
     z-index: -1;
     transform: translateY(-50%);
+}
+
+/* 丸画像、フワッと出る設定 */
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: translateY(-50%);
+    }
+
+    50% {
+        transform: translateY(-58%);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 1.5s ease;
+    transition-delay: 0.8s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    animation: sway 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+    /* フェードインの後にゆらゆら */
+    animation-fill-mode: both;
+    /* アニメーション前後も両方保持 */
 }
 
 .message {
