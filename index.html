@@ -7,7 +7,7 @@
     <title>MORO HANDS</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
@@ -43,8 +43,10 @@
         </div>
     </header>
     <div class="main_visual_pc">
-        <img src="./images/top_main1.jpg" alt="メイン画像">
-        <img src="./images/top_main2.jpg" alt="メイン画像">
+        <div>
+            <img src="./images/top_main1.jpg" alt="メイン画像">
+            <img src="./images/top_main2.jpg" alt="メイン画像">
+        </div>
         <p>最近、どう？<br>
             <span>
                 困ってへん？
@@ -52,8 +54,10 @@
         </p>
     </div>
     <div class="main_visual_sp">
-        <!-- <img src="./images/sp_main1.jpg" alt="メイン画像"> -->
-        <img src="./images/sp_main2.jpg" alt="メイン画像">
+        <div>
+            <img src="./images/sp_main1.jpg" alt="メイン画像">
+            <img src="./images/sp_main2.jpg" alt="メイン画像">
+        </div>
         <p class="vertical_1">最近、どう？</p>
         <p class="vertical_2">
             困ってへん？
@@ -61,9 +65,9 @@
     </div>
     <div class="main_copy">
         MORO HANDSです。<br>
-        ご近所さんが困っていたら手を貸すように、手が足りないなと思うところをフワッとお手伝いできればな…。<br>
+        ご近所さんが困っていたら手を貸すように、<br class="br_768-950">手が足りないなと思うところをフワッとお手伝いできればな…。<br>
         そんな想いでお仕事します。<br>
-        けっこう長く生きてきた経験で、かゆいところに手が届くお仕事ができればいいな…と思っています。
+        けっこう長く生きてきた経験で、かゆいところに手が届くお仕事が<br class="br_768-950">できればいいな…と思っています。
     </div>
     <main>
         <section class="content_about about_top" id="about">
@@ -145,8 +149,7 @@
                 </picture>
                 <p>何かできること、ある？</p>
             </div>
-            <button onclick="location.href='./form.html'">
-                困ってへん？　お話聞くよ？</button>
+            <button onclick="location.href='./form.html'">困ってへん？　お話聞くよ？</button>
         </section>
 
     </main>
@@ -174,7 +177,7 @@
 
 
     <script>
-
+        // メインビジュアルの画像変化
         $(document).ready(function () {
             // 初期状態
             $('.main_visual_pc img:eq(1)').hide(); // 2枚目の画像は非表示
@@ -188,10 +191,33 @@
 
             // 画像切り替えと「困ってへん？」表示
             setTimeout(function () {
-                $('.main_visual_pc img:eq(0)').fadeOut(1000); // 1枚目消える
+                // $('.main_visual_pc img:eq(0)').fadeOut(1000); // 1枚目消える
                 $('.main_visual_pc img:eq(1)').fadeIn(1000);  // 2枚目現れる
                 $('.main_visual_pc span').fadeIn(1000);       // 「困ってへん？」出現
             }, 3000); // 3秒後（＝pが出た2秒後）
+        });
+
+        $(document).ready(function () {
+            // 初期状態
+            $('.main_visual_sp img:eq(1)').hide(); // 2枚目の画像だけ非表示
+            $('.main_visual_sp .vertical_1, .main_visual_sp .vertical_2').css('visibility', 'hidden'); // テキスト非表示（高さ維持）
+
+            // 「最近、どう？」表示（1秒後）
+            setTimeout(function () {
+                $('.main_visual_sp .vertical_1')
+                    .css('visibility', 'visible')
+                    .hide()
+                    .fadeIn(1000);
+            }, 1000);
+
+            // 画像2枚目と「困ってへん？」表示（3秒後）
+            setTimeout(function () {
+                $('.main_visual_sp img:eq(1)').fadeIn(1000);
+                $('.main_visual_sp .vertical_2')
+                    .css('visibility', 'visible')
+                    .hide()
+                    .fadeIn(1000);
+            }, 3000);
         });
 
 
@@ -272,6 +298,41 @@
             // 初期スクロールイベントを強制発火（← これがスマホで効くことが多い）
             $(window).trigger('scroll');
         });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.querySelector("#contact p");
+            const text = textElement.textContent;
+
+            // 既存のテキストをクリア
+            textElement.innerHTML = "";
+
+            // 1文字ずつspanで囲む
+            [...text].forEach(char => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                textElement.appendChild(span);
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const spans = textElement.querySelectorAll("span");
+                        spans.forEach((span, index) => {
+                            setTimeout(() => {
+                                span.classList.add("visible");
+                            }, 100 * index);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            observer.observe(textElement);
+        });
+
     </script>
 
 

@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MORO HANDS／つくったもの　ウェブバナー1</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+    <!-- jQuery & Plugin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <script>
         (function (d) {
             var config = {
@@ -67,10 +74,28 @@
                     <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
                     <img src="./images/pc_contact2.jpg" alt="お問い合わせ">
                 </picture>
-                <p class="contact_text_right">つくったもの、どうだった？</p>
+                <p class="contact_text_right" id="animatedText" data-text="つくったもの、どうだった？"></p>
             </div>
             <button class="button_right" onclick="location.href='./form.html'">
                 お手伝いできたらいいねんけど</button>
+        </section>
+
+        <section class="content_works">
+            <div class="works">
+                <h3 class="works_title"></h3>
+                <p>それか、もう少し他のも見ますか？</p>
+            </div>
+            <div class="slider">
+                <div><img src="./images/work_work1.jpg" alt="つくったもの1" data-link="./work1.html"></div>
+                <div class="small-slide"><img src="./images/work_work2.jpg" alt="つくったもの2" data-link="./work2.html">
+                </div>
+                <div class="small-slide"><img src="./images/work_work3.jpg" alt="つくったもの3" data-link="./work3.html">
+                </div>
+                <div><img src="./images/work_work4.jpg" alt="つくったもの4" data-link="./work4.html"></div>
+                <div><img src="./images/work_work5.jpg" alt="つくったもの5" data-link="./work5.html"></div>
+                <div><img src="./images/work_work6.jpg" alt="つくったもの6" data-link="./work6.html"></div>
+            </div>
+
         </section>
     </main>
     <footer>
@@ -108,6 +133,87 @@
             });
         });
 
+
+        $(document).ready(function () {
+            $('.slider').slick({
+                centerMode: true,
+                slidesToShow: 3,
+                centerPadding: 0,
+                arrows: true,
+                prevArrow: '<div class="slick-arrow slick-prev">←</div>',
+                nextArrow: '<div class="slick-arrow slick-next">→</div>',
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: { slidesToShow: 2, centerMode: true }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: { slidesToShow: 1, centerMode: true }
+                    }
+                ]
+            });
+
+            // 初回 & スライド変更時にリンク設定
+            function updateCenterSlideLink() {
+                $('.slider .slick-slide').each(function () {
+                    const $slide = $(this);
+                    const $img = $slide.find('img');
+
+                    // 一度リンクを除去（重複防止）
+                    if ($img.parent('a').length) {
+                        $img.unwrap('a');
+                    }
+
+                    if ($slide.hasClass('slick-center')) {
+                        // 中央スライドだけリンクに包む（リンク先はdata-linkで持たせる例）
+                        const link = $img.data('link') || '#'; // ない場合は"#"
+                        $img.wrap(`<a href="${link}" target="_top"></a>`);
+                    }
+                });
+            }
+
+            // 初回実行
+            updateCenterSlideLink();
+
+            // スライド切り替え時に再設定
+            $('.slider').on('afterChange', function () {
+                updateCenterSlideLink();
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.getElementById("animatedText");
+            const text = textElement.dataset.text;
+
+            // 1文字ずつspanで囲む（初期状態で非表示）
+            textElement.innerHTML = "";
+            [...text].forEach((char) => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                textElement.appendChild(span);
+            });
+
+            // Intersection Observer 設定
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const spans = textElement.querySelectorAll("span");
+                        spans.forEach((span, index) => {
+                            setTimeout(() => {
+                                span.classList.add("visible");
+                            }, 100 * index); // 各文字に100msずつ遅延
+                        });
+                        observer.unobserve(entry.target); // 1回だけ発火
+                    }
+                });
+            }, {
+                threshold: 0.6 // 要素が60%見えたら発火
+            });
+
+            observer.observe(textElement);
+        });
     </script>
 </body>
 

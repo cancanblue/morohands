@@ -7,7 +7,7 @@
     <title>MORO HANDS／わたしのこと</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
     <script>
         (function (d) {
@@ -68,7 +68,7 @@
             </div>
         </section>
         <section class="about_hobby content_about">
-            <h2 class="title_middle top_underline_left">多趣味です</h2>
+            <h2 class="title_middle underline_left">多趣味です</h2>
             <p class="subtitle">上手い・下手は別として、いろいろやってます。</p>
             <div>
                 <ul class="about_hobby_wrap">
@@ -318,6 +318,19 @@
                         $this.addClass('show');
                     }
                 });
+            });
+        });
+
+        // 線が伸びる
+        $(window).on('scroll', function () {
+            $('.underline_left, .about_underline_right, .about_underline_left').each(function () {
+                const offsetTop = $(this).offset().top;
+                const scrollTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (scrollTop + windowHeight > offsetTop + 100) {
+                    $(this).addClass('show');
+                }
             });
         });
     </script>

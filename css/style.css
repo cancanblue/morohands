@@ -129,6 +129,10 @@ h1 img {
     position: relative;
 }
 
+.main_visual_pc>div {
+    position: relative;
+}
+
 /* SP版非表示 */
 .main_visual_sp {
     display: none;
@@ -140,12 +144,19 @@ h1 img {
     margin-left: auto;
 }
 
+.main_visual_pc img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .main_visual_pc p {
     position: absolute;
     bottom: 10%;
     left: 7%;
     font-size: clamp(40px, 5vw, 60px);
     line-height: 1.3;
+    height: calc(2em * 1.3);
 }
 
 .main_visual_pc span {
@@ -162,6 +173,10 @@ h1 img {
         /* SP版表示 */
     }
 
+    .main_visual_sp>div {
+        position: relative;
+    }
+
     /* PC版非表示 */
     .main_visual_pc {
         display: none;
@@ -171,6 +186,11 @@ h1 img {
         display: block;
         width: 100%;
         margin-left: auto;
+    }
+
+    .main_visual_sp img:nth-child(2) {
+        position: absolute;
+        top: 0;
     }
 
     .vertical_1,
@@ -322,8 +342,15 @@ h1 img {
 .title_middle,
 .title_about_middle {
     font-size: 40px;
-    text-align: center;
     font-weight: normal;
+}
+
+.title_middle {
+    text-align: center;
+}
+
+.title_about_middle {
+    text-align: left;
 }
 
 .title_small {
@@ -388,6 +415,12 @@ h1 img {
     display: inline-block;
 }
 
+.about_underline_right,
+.about_underline_left {
+    display: block;
+    width: 100%;
+}
+
 .underline::after {
     content: '';
     position: absolute;
@@ -398,7 +431,25 @@ h1 img {
     background-color: #ffcc33;
 }
 
+/* わたしのことの自己紹介伸びるアンダーライン */
 .about_underline_right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    height: 2px;
+    background-color: #ffcc33;
+    width: calc(100% - 10px + (100vw - (100% * (100 / 54)))/2);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 1s ease;
+}
+
+.about_underline_right.show::after {
+    transform: scaleX(1);
+}
+
+/* .about_underline_right::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -406,9 +457,26 @@ h1 img {
     width: calc(100% + (100vw - (100% * (100 / 60)))/2);
     height: 2px;
     background-color: #ffcc33;
-}
+} */
 
 .about_underline_left::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    background-color: #ffcc33;
+    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s ease;
+}
+
+.about_underline_left.show::after {
+    transform: scaleX(1);
+}
+
+/* .about_underline_left::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -416,7 +484,7 @@ h1 img {
     width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
     height: 2px;
     background-color: #ffcc33;
-}
+} */
 
 /* トップページのできること・つくったものの固定アンダーライン */
 .top_underline_left,
@@ -445,7 +513,7 @@ h1 img {
 }
 
 
-/* できること・つくったものの動くアンダーライン */
+/* できること・つくったもの・わたしのことの趣味の動くアンダーライン */
 .underline_left,
 .underline_right {
     position: relative;
@@ -983,7 +1051,6 @@ h1 img {
     /* 右に3px、下に3px移動 */
 }
 
-
 /* スキル（skill）のスキルの部分【PC】 */
 .skill_box1,
 .skill_box2 {
@@ -1277,7 +1344,108 @@ h1 img {
     cursor: pointer;
 }
 
-/* ↑つくったもののモーダルウィンドウ関係 */
+/* 各つくったもののスライダーテスト */
+
+.slider {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: visible;
+    /* はみ出しを見えるように */
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #330000 !important;
+}
+
+.slider .slick-slide {
+    margin: 0 10px;
+    opacity: 0.4;
+    transition: all 300ms ease;
+    transform: scale(0.8);
+    display: flex;
+    /* inline-block から flex に変更 */
+    justify-content: center;
+    /* 横中央揃え */
+    align-items: center;
+    /* 上揃え */
+}
+
+.slider .slick-slide.slick-center {
+    opacity: 1;
+    transform: scale(1);
+    /* 中央だけ大きく */
+}
+
+.slider .slick-slide img {
+    height: 200px;
+    /* 好きな高さに調整 */
+    object-fit: contain;
+    /* 縦横比を崩さず収める */
+    display: block;
+    margin: 0 auto;
+    /* 横中央揃え */
+}
+
+.slider .small-slide img {
+    transform: scale(0.8);
+    /* 好きなサイズに調整 */
+    transition: transform 300ms ease;
+}
+
+.slick-prev,
+.slick-next {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.slick-prev {
+    left: -30px;
+    /* 必要に応じて調整 */
+}
+
+.slick-next {
+    right: -30px;
+}
+
+/* .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+} */
+
+.slick-arrow:hover {
+    background: #330000;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.slick-prev {
+    left: -40px;
+    /* スライダーの外に出す */
+}
+
+.slick-next {
+    right: -40px;
+}
+
+
 
 /* 各つくったものページの部分【SP】 */
 @media screen and (max-width: 767px) {
@@ -1524,6 +1692,20 @@ h1 img {
     left: -7%;
 }
 
+/* 問い合わせの文字が一文字ずつフェードイン */
+.contact_text_right span {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+}
+
+.contact_text_right span.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 問い合わせへのボタン */
 .button_right {
     margin: 50px auto 50px 0;
 }
@@ -1620,6 +1802,21 @@ h1 img {
 #contact .top_underline_left::after {
     left: 0;
     width: 85%;
+}
+
+/* 問い合わせの文字が一文字ずつフェードイン */
+/* アニメーション用span初期状態 */
+#contact p span {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+}
+
+/* 表示時の状態 */
+#contact p span.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* トップページ「連絡ください」【SP】*/
