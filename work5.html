@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MORO HANDS／つくったもの　ウェブデザイン5</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+    <!-- jQuery & Plugin -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -81,7 +87,7 @@
                     <source srcset="./images/sp_contact.jpg" media="(max-width: 767px)">
                     <img src="./images/pc_contact2.jpg" alt="お問い合わせ">
                 </picture>
-                <p class="contact_text_right">つくったもの、どうだった？</p>
+                <p class="contact_text_right" id="animatedText" data-text="つくったもの、どうだった？"></p>
             </div>
             <button class="button_right" onclick="location.href='./form.html'">
                 お手伝いできたらいいねんけど</button>
@@ -154,6 +160,39 @@
                     $(this).addClass('line-animate');
                 }
             });
+        });
+
+        // 問い合わせフォームのテキスト
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.getElementById("animatedText");
+            const text = textElement.dataset.text;
+
+            // 1文字ずつspanで囲む（初期状態で非表示）
+            textElement.innerHTML = "";
+            [...text].forEach((char) => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                textElement.appendChild(span);
+            });
+
+            // Intersection Observer 設定
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const spans = textElement.querySelectorAll("span");
+                        spans.forEach((span, index) => {
+                            setTimeout(() => {
+                                span.classList.add("visible");
+                            }, 100 * index); // 各文字に100msずつ遅延
+                        });
+                        observer.unobserve(entry.target); // 1回だけ発火
+                    }
+                });
+            }, {
+                threshold: 0.6 // 要素が60%見えたら発火
+            });
+
+            observer.observe(textElement);
         });
 
     </script>

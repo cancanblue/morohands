@@ -431,60 +431,34 @@ h1 img {
     background-color: #ffcc33;
 }
 
-/* わたしのことの自己紹介伸びるアンダーライン */
+/* わたしのこと「自己紹介」伸びるアンダーライン */
+.about_underline_left::after,
 .about_underline_right::after {
     content: '';
     position: absolute;
-    right: 0;
     bottom: -15px;
     height: 2px;
     background-color: #ffcc33;
-    width: calc(100% - 10px + (100vw - (100% * (100 / 54)))/2);
     transform: scaleX(0);
-    transform-origin: right;
     transition: transform 1s ease;
 }
 
+.about_underline_right::after {
+    left: 0;
+    width: calc(100% + (100vw - (100% * (100 / 60)))/2);
+    transform-origin: left;
+}
+
+.about_underline_left::after {
+    right: 0;
+    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
+    transform-origin: left;
+}
+
+.about_underline_left.show::after,
 .about_underline_right.show::after {
     transform: scaleX(1);
 }
-
-/* .about_underline_right::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    width: calc(100% + (100vw - (100% * (100 / 60)))/2);
-    height: 2px;
-    background-color: #ffcc33;
-} */
-
-.about_underline_left::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    height: 2px;
-    background-color: #ffcc33;
-    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1s ease;
-}
-
-.about_underline_left.show::after {
-    transform: scaleX(1);
-}
-
-/* .about_underline_left::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    right: 0;
-    width: calc(100% - 10px + (100vw - (100% * (100 / 60)))/2);
-    height: 2px;
-    background-color: #ffcc33;
-} */
 
 /* トップページのできること・つくったものの固定アンダーライン */
 .top_underline_left,
@@ -1159,7 +1133,8 @@ h1 img {
 }
 
 /* 各つくったものページの部分【pc】 */
-.works {
+.works,
+.works_bottom {
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -1167,8 +1142,12 @@ h1 img {
     position: relative;
 }
 
-.works p {
+.works p,
+.works_bottom p {
     font-size: 18px;
+}
+
+.works p {
     opacity: 0.5;
 }
 
@@ -1452,51 +1431,83 @@ h1 img {
 
     .works {
         display: block;
+        padding-top: 100px;
+        /* ← pがabsoluteなのでこれで被りを防ぐ */
+        margin-bottom: 40px;
+        /* スライダーとの余白確保 */
     }
 
     .works p {
         font-size: 16px;
         text-align: left;
         position: absolute;
-        top: 60px;
+        top: 165px;
+        left: 0;
+        right: 0;
     }
 
-    /* 下の画像が2つの場合 */
-    .works_sub2 {
-        display: block;
-        margin: 50px 0 25px 0;
-        padding-top: 0;
+    /* つくったもの一覧の部分 */
+    .works_bottom {
+        position: relative;
+        padding-top: 100px;
+        /* ← pタグ分の余白を確保 */
     }
 
-    .works_sub2 img {
-        width: 70%;
+    .works_bottom p {
+        position: absolute;
+        top: 85px;
+        /* left: 5%;
+        right: 5%; */
+        font-size: 16px;
+        text-align: left;
+        margin: 0;
     }
 
-    .works_sub2 img:first-child {
-        margin-bottom: 50px;
+    .slider .small-slide2 img {
+        transform: scale(0.8);
+        /* 好きなサイズに調整 */
+        transition: transform 300ms ease;
     }
-
-    /* 各作品のモーダルウィンドウボタンのところ */
-    /* クリックするが1つの場合 */
-    .works_click1 {
-        width: 35%;
-        margin: 60px auto 0 auto;
-    }
-
-    /* クリックするが2つの場合 */
-    .works_click2 {
-        width: 70%;
-        /* display: flex; */
-        justify-content: space-between;
-        margin: 60px auto 0 auto;
-        gap: 0;
-    }
-
-    .click-block img {
-        width: 100%;
-    }
-
 }
+
+
+
+/* 下の画像が2つの場合 */
+.works_sub2 {
+    display: block;
+    margin: 50px 0 25px 0;
+    padding-top: 0;
+}
+
+.works_sub2 img {
+    width: 70%;
+}
+
+.works_sub2 img:first-child {
+    margin-bottom: 50px;
+}
+
+/* 各作品のモーダルウィンドウボタンのところ */
+/* クリックするが1つの場合 */
+.works_click1 {
+    width: 35%;
+    margin: 60px auto 0 auto;
+}
+
+/* クリックするが2つの場合 */
+.works_click2 {
+    width: 70%;
+    /* display: flex; */
+    justify-content: space-between;
+    margin: 60px auto 0 auto;
+    gap: 0;
+}
+
+.click-block img {
+    width: 100%;
+}
+
+
 
 /* 各ページメッセージの部分【pc】 */
 /* message_thanksはサンクスページの部分 */
@@ -1566,7 +1577,7 @@ h1 img {
     opacity: 0;
     transform: translateY(-50%);
     transition: opacity 1.5s ease;
-    transition-delay: 0.8s;
+    transition-delay: 0.4s;
 }
 
 .fade-in.show {
