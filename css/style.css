@@ -1336,6 +1336,10 @@ h1 img {
     /* はみ出しを見えるように */
 }
 
+.slider>div {
+    transition: transform 300ms ease;
+}
+
 .slick-prev:before,
 .slick-next:before {
     color: #330000 !important;
@@ -1361,18 +1365,31 @@ h1 img {
 }
 
 .slider .slick-slide img {
-    height: 200px;
+    /* height: 200px; */
     /* 好きな高さに調整 */
+    height: auto;
+    width: 100%;
     object-fit: contain;
     /* 縦横比を崩さず収める */
     display: block;
     margin: 0 auto;
     /* 横中央揃え */
+    transition: transform 300ms ease;
+}
+
+.slider .small-slide1 img {
+    transform: scale(0.9);
+    transition: transform 300ms ease;
 }
 
 .slider .small-slide img {
-    transform: scale(0.8);
+    transform: scale(0.7);
     /* 好きなサイズに調整 */
+    transition: transform 300ms ease;
+}
+
+.slider .small-slide2 img {
+    margin-top: 50px;
     transition: transform 300ms ease;
 }
 
@@ -1465,6 +1482,12 @@ h1 img {
     }
 
     .slider .small-slide2 img {
+        transform: scale(0.9);
+        margin-top: 75px;
+        transition: transform 300ms ease;
+    }
+
+    .slider .small-slide1 img {
         transform: scale(0.8);
         /* 好きなサイズに調整 */
         transition: transform 300ms ease;
