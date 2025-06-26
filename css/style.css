@@ -339,6 +339,8 @@ h1 img {
     transform: translateY(-50%);
 }
 
+/* 連絡ください・わたしのこと「夢があります」
+    わたしのこと「自己紹介」 */
 .title_middle,
 .title_about_middle {
     font-size: 40px;
@@ -382,9 +384,11 @@ h1 img {
         font-size: 45px;
     }
 
+    /* 連絡ください・わたしのこと「夢があります」
+    わたしのこと「自己紹介」 */
     .title_middle,
     .title_about_middle {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .title_about_middle {
@@ -399,7 +403,7 @@ h1 img {
 
     /* 各作品ページのh2 */
     .works_title {
-        font-size: 32px;
+        font-size: 30px;
     }
 
 }
@@ -1189,7 +1193,7 @@ h1 img {
 }
 
 
-/* 下の画像が1つの場合 */
+/* WEBバナー下の画像が1つの場合 */
 .works_sub1 {
     margin: 90px 0 25px 0;
 }
@@ -1199,7 +1203,7 @@ h1 img {
     height: auto;
 }
 
-/* 下の画像が2つの場合 */
+/* WEBバナー下の画像が2つの場合 */
 .works_sub2 {
     display: flex;
     justify-content: space-between;
@@ -1212,7 +1216,7 @@ h1 img {
     height: auto;
 }
 
-/* 各作品のモーダルウィンドウボタンのところ */
+/* 各つくったものページのモーダルウィンドウボタンのところ */
 /* クリックするが1つの場合 */
 .works_click1 {
     width: 19%;
@@ -1274,7 +1278,7 @@ h1 img {
     padding-top: 20px;
 }
 
-/* ↓つくったもののモーダルウィンドウ関係 */
+/* ↓各つくったものページのモーダルウィンドウ関係 */
 .modal {
     position: fixed;
     z-index: 9999;
@@ -1323,8 +1327,7 @@ h1 img {
     cursor: pointer;
 }
 
-/* 各つくったもののスライダーテスト */
-
+/* 各つくったものページのスライダー */
 .slider {
     position: relative;
     width: 80%;
@@ -1424,8 +1427,6 @@ h1 img {
     right: -40px;
 }
 
-
-
 /* 各つくったものページの部分【SP】 */
 @media screen and (max-width: 767px) {
 
@@ -1470,9 +1471,7 @@ h1 img {
     }
 }
 
-
-
-/* 下の画像が2つの場合 */
+/* WEBバナー下の画像が2つの場合 */
 .works_sub2 {
     display: block;
     margin: 50px 0 25px 0;
@@ -1965,13 +1964,13 @@ textarea.form__input {
 @media screen and (max-width: 767px) {
 
     .title_right {
-        font-size: 32px;
+        font-size: 30px;
         padding-right: 10%;
     }
 
     .form_text_right,
     .thanks_text_right {
-        font-size: 32px;
+        font-size: 30px;
         line-height: 1.3;
     }
 
@@ -1985,7 +1984,8 @@ textarea.form__input {
         letter-spacing: 0.3em;
     }
 
-    .form_text_right span,
+    /* 忘れたらあかん */
+    .form_text_right .sp_space,
     .thanks_text_right span {
         padding-left: 32px;
     }
@@ -2119,6 +2119,17 @@ footer {
     }
 }
 
+/* できることのテキスト部分 */
+.br_500 {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .br_500 {
+        display: block;
+    }
+}
+
 @media screen and (min-width: 768px) and (max-width: 900px) {
 
     /* わたしについての自己紹介と夢のところ */
@@ -2143,6 +2154,7 @@ footer {
     .vertical_1,
     .vertical_2 {
         font-size: 30px;
+        font-family: "Noto Sans JP", sans-serif;
     }
 
     /* 各ページの一番上のh2タイトル */
