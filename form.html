@@ -52,11 +52,8 @@
                         <img src="./images/pc_contact2.jpg" alt="お問い合わせ">
                     </picture>
                 </div>
-                <p class="contact_text_right form_text_right" id="animatedText" data-text="困ってへん？話を聞くよ。"></p>
+                <p class="contactform_text_right form_text_right" id="animatedText" data-text="困ってへん？話を聞くよ。"></p>
                 <!-- <p class="form_text_right">困ってへん？<br class="sp_br"><span class="sp_space">話を聞くよ。</span></p> -->
-                <!-- <p class="contact_text_right" id="animatedText">
-                    困ってへん？<br class="sp_br"><span class="sp_space">話を聞くよ。</span>
-                </p> -->
                 <h3 class="title_right form_underline_left">連絡ください</h3>
             </div>
         </section>
@@ -129,7 +126,7 @@
                 span.textContent = char;
                 if (index == 6) {
                     const br = document.createElement("br");
-                    br.classList.add("sp_br");
+                    br.classList.add("br_500");
                     textElement.appendChild(br);
                 }
                 textElement.appendChild(span);

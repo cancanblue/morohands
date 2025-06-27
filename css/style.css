@@ -1730,7 +1730,7 @@ h1 img {
     opacity: 0;
     display: inline-block;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(10px);
+    transform: translateY(5px);
 }
 
 .contact_text_right span.visible {
@@ -1843,7 +1843,7 @@ h1 img {
     opacity: 0;
     display: inline-block;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(10px);
+    transform: translateY(5px);
 }
 
 /* 表示時の状態 */
@@ -1869,7 +1869,7 @@ h1 img {
     }
 }
 
-/* 問い合わせフォームページ【PC】 */
+/* 問い合わせフォーム＆サンクスページ【PC】 */
 .title_right {
     font-size: 36px;
     text-align: right;
@@ -1896,6 +1896,21 @@ textarea::placeholder {
     bottom: 40%;
     left: -10%;
     font-size: 36px;
+}
+
+/* サンクスページの文字が一文字ずつフェードイン */
+.contactform_text_right span,
+.thanks_text_right span {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(5px);
+}
+
+.contactform_text_right span.visible,
+.thanks_text_right span.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .thanks_message {
@@ -1927,6 +1942,7 @@ textarea::placeholder {
     /* transform: translateY(-50%); */
 }
 
+/* 問い合わせフォーム関係 */
 .form_underline_left {
     margin: 90px 0 30px 0;
     position: relative;
@@ -1983,7 +1999,7 @@ textarea.form__input {
     line-height: 2.0;
 }
 
-/* 問い合わせフォームページ【SP】 */
+/* 問い合わせフォーム＆サンクスページ【SP】 */
 @media screen and (max-width: 767px) {
 
     .title_right {
@@ -1992,25 +2008,19 @@ textarea.form__input {
     }
 
     .form_text_right,
-    .thanks_text_right {
+    .contactform_text_right .thanks_text_right {
         font-size: 30px;
         line-height: 1.3;
     }
 
-    .form_text_right {
-        bottom: 100px;
+    .contactform_text_right {
+        bottom: 105px;
     }
 
     /* ↑なんでかわからん↓ */
     .thanks_text_right {
-        bottom: -100px;
+        bottom: -90px;
         letter-spacing: 0.3em;
-    }
-
-    /* 忘れたらあかん */
-    .form_text_right .sp_space,
-    .thanks_text_right span {
-        padding-left: 32px;
     }
 
     /* thanks_pageはbody内のクラス */
@@ -2130,7 +2140,7 @@ footer {
     }
 }
 
-/* レスポンシブ */
+/* レスポンシブ関係 */
 /* わたしのことのメッセージ部分 */
 .br_768-950 {
     display: none;
@@ -2142,7 +2152,8 @@ footer {
     }
 }
 
-/* できることのテキスト部分 */
+/* 「できること」のテキスト部分 */
+/* 問い合わせ・サンクスページの文字の切り替わり */
 .br_500 {
     display: none;
 }
@@ -2150,6 +2161,13 @@ footer {
 @media screen and (max-width: 500px) {
     .br_500 {
         display: block;
+    }
+
+    /* 問い合わせ・サンクスページの文字の切り替わり */
+    .form_text_right .sp_space,
+    .thanks_text_right .sp_space {
+        display: inline-block;
+        padding-left: 30px;
     }
 }
 
@@ -2200,3 +2218,16 @@ footer {
         font-size: 21px;
     }
 }
+
+
+/* #animatedText span {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#animatedText span.visible {
+    opacity: 1;
+    transform: translateY(0);
+} */
