@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MORO HANDS／つくったもの　ウェブバナー1</title>
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
@@ -102,7 +107,7 @@
             <button onclick="location.href='./work.html'">
                 「つくったもの」一覧へ</button>
         </section>
-        </section>
+
 
     </main>
     <footer>
@@ -126,6 +131,11 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">
+        <span class="arrow">↑</span>
+        <span class="label">トップ</span>
+    </button>
+
     <script>
         // 線が伸びる
         $(window).on('scroll', function () {
@@ -140,7 +150,7 @@
             });
         });
 
-
+        // つくったもの一覧
         $(document).ready(function () {
             $('.slider').slick({
                 centerMode: true,
@@ -220,6 +230,21 @@
             });
 
             observer.observe(textElement);
+        });
+
+        // トップへ戻る
+        const backToTop = document.querySelector('.back-to-top-button');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

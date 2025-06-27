@@ -87,8 +87,8 @@
                                 <img src="./images/pc_shippo.jpg" alt="七宝焼" class="dialog_img">
                             </div>
                             <h2>七宝焼</h2>
-                            <p>20代の頃からお世話になっている、大好きな絵の先生から教えてもらっています。
-                                <br>
+                            <p>金属とガラスでつくる焼物の一種。<br>20代の頃からお世話になっている、大好きな絵の先生に教えてもらっています。
+                                <br>「こうあるべき」のない自由な世界。<br>
                                 初めて七宝焼展に出した作品を紹介しておきます。
                             </p>
                             <button>ご紹介できるよう準備中</button>
@@ -111,7 +111,7 @@
                             <img src="./images/pc_color.jpg" alt="カラーセラピー" class="dialog_img">
                         </div>
                         <h2>カラーセラピー</h2>
-                        <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時の悩みや想いから浮かぶ気になる色で深堀りしていくセラピーです。
+                        <p>あなたの似合う色は？…というのでもなく、あなたの好きな色は？…というのでもなく、その時々の悩みや想いによって不思議と浮かぶ気になる色。<br>選んだカラーボトルから深堀りしていくセラピーです。
                             <br>ただいま勉強中＆実践中。
                         </p>
                         <button>ご紹介できるよう準備中</button>
@@ -160,6 +160,7 @@
                             <h2>カメラ</h2>
                             <p>ご縁があって、フィルムカメラを始めました。
                                 いらなくなったカメラをもらい、ちょっとした風景を撮影しています。<br>
+                                モノクロも味がある。<br>
                                 フィルムカメラの良さは…現像してみないとわからない。<br>
                                 人生みたいでワクワクしません？
                             </p>
@@ -210,7 +211,7 @@
                                 <img src="./images/pc_oshi.jpg" alt="推し活" class="dialog_img">
                             </div>
                             <h2>推し活</h2>
-                            <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。
+                            <p>小さいライブハウスでからドームやアリーナまで…好きなバンドやアーティストのライブは全国ふらっと行きます。<br>旅行も兼ねて一石二鳥。<br>
                                 抽選もひとりの方が当たりやすいので、だいたいボッチ参戦です。<br>
                                 ライブ友達募集中です。
                             </p>
@@ -285,8 +286,14 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">
+        <span class="arrow">↑</span>
+        <span class="label">トップ</span>
+    </button>
+
+    <!-- <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">↑</button> -->
     <script>
-        // 開くボタンすべてにイベントを付ける
+        // モーダルウィンドウ・開くボタンすべてにイベントを付ける
         document.querySelectorAll('.open-button').forEach(button => {
             button.addEventListener('click', () => {
                 const targetId = button.dataset.target;
@@ -295,7 +302,7 @@
             });
         });
 
-        // 閉じるボタンすべてにイベントを付ける
+        // モーダルウィンドウ・閉じるボタンすべてにイベントを付ける
         document.querySelectorAll('.close-button').forEach(button => {
             button.addEventListener('click', () => {
                 const modal = button.closest('dialog');
@@ -365,6 +372,21 @@
             });
 
             observer.observe(textElement);
+        });
+
+        // トップへ戻る
+        const backToTop = document.querySelector('.back-to-top-button');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 

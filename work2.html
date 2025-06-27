@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
-
     <!-- jQuery & Plugin -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script>
         (function (d) {
             var config = {
@@ -84,6 +83,29 @@
                 お手伝いできたらいいねんけど</button>
         </section>
 
+        <section class="content_works">
+            <div class="works works_bottom">
+                <h3 class="works_title"></h3>
+                <p>それか、もう少し他のも見ますか？</p>
+            </div>
+            <div class="slider">
+                <div class="small-slide1"><img src="./images/work_work1.jpg" alt="つくったもの1" data-link="./work1.html">
+                </div>
+                <div class="small-slide"><img src="./images/work_work2.jpg" alt="つくったもの2" data-link="./work2.html">
+                </div>
+                <div class="small-slide"><img src="./images/work_work3.jpg" alt="つくったもの3" data-link="./work3.html">
+                </div>
+                <div class="small-slide2"><img src="./images/work_work4.jpg" alt="つくったもの4" data-link="./work4.html">
+                </div>
+                <div class="small-slide2"><img src="./images/work_work5.jpg" alt="つくったもの5" data-link="./work5.html">
+                </div>
+                <div class="small-slide2"><img src="./images/work_work6.jpg" alt="つくったもの6" data-link="./work6.html">
+                </div>
+            </div>
+            <button onclick="location.href='./work.html'">
+                「つくったもの」一覧へ</button>
+        </section>
+
     </main>
     <footer>
         <div class="footer_wrap">
@@ -106,6 +128,11 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">
+        <span class="arrow">↑</span>
+        <span class="label">トップ</span>
+    </button>
+
     <script>
         // 線が伸びる
         $(window).on('scroll', function () {
@@ -117,6 +144,55 @@
                 if (scroll > elemTop - windowHeight + 100 && !$(this).hasClass('line-animate')) {
                     $(this).addClass('line-animate');
                 }
+            });
+        });
+
+        // つくったもの一覧
+        $(document).ready(function () {
+            $('.slider').slick({
+                centerMode: true,
+                slidesToShow: 3,
+                centerPadding: 0,
+                arrows: true,
+                prevArrow: '<div class="slick-arrow slick-prev">←</div>',
+                nextArrow: '<div class="slick-arrow slick-next">→</div>',
+                responsive: [
+                    // {
+                    //     breakpoint: 1024,
+                    //     settings: { slidesToShow: 2, centerMode: true }
+                    // },
+                    {
+                        breakpoint: 768,
+                        settings: { slidesToShow: 1, centerMode: true }
+                    }
+                ]
+            });
+
+            // 初回 & スライド変更時にリンク設定
+            function updateCenterSlideLink() {
+                $('.slider .slick-slide').each(function () {
+                    const $slide = $(this);
+                    const $img = $slide.find('img');
+
+                    // 一度リンクを除去（重複防止）
+                    if ($img.parent('a').length) {
+                        $img.unwrap('a');
+                    }
+
+                    if ($slide.hasClass('slick-center')) {
+                        // 中央スライドだけリンクに包む（リンク先はdata-linkで持たせる例）
+                        const link = $img.data('link') || '#'; // ない場合は"#"
+                        $img.wrap(`<a href="${link}" target="_top"></a>`);
+                    }
+                });
+            }
+
+            // 初回実行
+            updateCenterSlideLink();
+
+            // スライド切り替え時に再設定
+            $('.slider').on('afterChange', function () {
+                updateCenterSlideLink();
             });
         });
 
@@ -151,6 +227,21 @@
             });
 
             observer.observe(textElement);
+        });
+
+        // トップへ戻る
+        const backToTop = document.querySelector('.back-to-top-button');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

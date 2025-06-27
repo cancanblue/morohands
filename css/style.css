@@ -854,8 +854,7 @@ h1 img {
     }
 
     width: 510px;
-    max-height: 90vh;
-    overflow-y: auto;
+    height: 100%;
     padding:15px;
     border: solid 2px hsl(45, 100%, 60%);
     box-sizing: border-box;
@@ -905,8 +904,9 @@ h1 img {
 
     .dialog {
         width: 350px;
-        /* height: 100%; */
-        padding: 20px 20px 5px 20px;
+        max-height: 87vh;
+        overflow-y: hidden;
+        padding: 20px;
     }
 
 }
@@ -1337,9 +1337,9 @@ h1 img {
     /* はみ出しを見えるように */
 }
 
-.slider>div {
+/* .slider>div {
     transition: transform 300ms ease;
-}
+} */
 
 .slick-prev:before,
 .slick-next:before {
@@ -1351,47 +1351,35 @@ h1 img {
     opacity: 0.4;
     transition: all 300ms ease;
     transform: scale(0.8);
-    display: flex;
+    /* display: flex; */
     /* inline-block から flex に変更 */
-    justify-content: center;
+    /* justify-content: center; */
     /* 横中央揃え */
-    align-items: center;
+    /* align-items: center; */
     /* 上揃え */
 }
 
 .slider .slick-slide.slick-center {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.1);
     /* 中央だけ大きく */
 }
 
-.slider .slick-slide img {
-    /* height: 200px; */
+.slider .slick-slide img,
+.slider .small-slide1 img,
+.slider .small-slide2 img {
+    height: 200px;
     /* 好きな高さに調整 */
-    height: auto;
-    width: 100%;
     object-fit: contain;
     /* 縦横比を崩さず収める */
     display: block;
     margin: 0 auto;
     /* 横中央揃え */
-    transition: transform 300ms ease;
-}
-
-.slider .small-slide1 img {
-    transform: scale(0.9);
-    transition: transform 300ms ease;
 }
 
 .slider .small-slide img {
-    transform: scale(0.7);
+    transform: scale(0.8);
     /* 好きなサイズに調整 */
-    transition: transform 300ms ease;
-}
-
-.slider .small-slide2 img {
-    margin-top: 50px;
-    transition: transform 300ms ease;
 }
 
 .slick-prev,
@@ -1482,16 +1470,20 @@ h1 img {
         margin: 0;
     }
 
+    .slider .slick-slide img,
+    .slider .small-slide1 img,
     .slider .small-slide2 img {
-        transform: scale(0.9);
-        margin-top: 75px;
-        transition: transform 300ms ease;
+        height: auto;
+        width: 100%;
     }
 
-    .slider .small-slide1 img {
-        transform: scale(0.8);
-        /* 好きなサイズに調整 */
-        transition: transform 300ms ease;
+    .slider .small-slide2 img {
+        margin-top: 70px;
+    }
+
+    .slider .small-slide2 a {
+        transform: scale(0.9);
+
     }
 }
 
@@ -2232,3 +2224,72 @@ footer {
     opacity: 1;
     transform: translateY(0);
 } */
+
+/* トップへ戻るボタン【PC】 */
+.back-to-top-button {
+    all: unset;
+    position: fixed;
+    bottom: 150px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffcc33;
+    /* border: #330000 solid 2px; */
+    color: #330000;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    /* ← 縦に並べる */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.back-to-top-button .arrow {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.back-to-top-button .label {
+    font-size: 10px;
+    margin-top: 2px;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.back-to-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top-button:hover {
+    background-color: #330000;
+    color: #fff;
+    transform: none;
+    /* ←ホバー時に移動しない */
+    box-shadow: none;
+}
+
+/* トップへ戻るボタン【SP】 */
+@media screen and (max-width: 767px) {
+    .back-to-top-button {
+        left: auto;
+        right: 10px;
+        /* ← スマホでは右下に表示 */
+        bottom: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        border-radius: 50%;
+    }
+
+    .back-to-top-button .label {
+        font-size: 8px;
+    }
+}
