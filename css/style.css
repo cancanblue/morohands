@@ -2230,7 +2230,7 @@ footer {
     all: unset;
     position: fixed;
     bottom: 150px;
-    left: 10px;
+    right: 10px;
     width: 60px;
     height: 60px;
     background-color: #ffcc33;
