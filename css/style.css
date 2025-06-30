@@ -121,7 +121,6 @@ h1 img {
 }
 
 /* メインビジュアル【PC】 */
-
 .main_visual_pc {
     display: block;
     /* PC版表示 */
@@ -242,7 +241,7 @@ h1 img {
 .content_1st {
     max-width: 1000px;
     padding: 0 10px;
-    margin: 200px auto 0 auto;
+    margin: 180px auto 0 auto;
     position: relative;
     /* box-sizing: border-box; */
 }
@@ -251,7 +250,7 @@ h1 img {
 .content_about {
     max-width: 850px;
     padding: 0 10px;
-    margin: 230px auto 0 auto;
+    margin: 210px auto 0 auto;
     position: relative;
     /* box-sizing: border-box; */
 }
@@ -260,7 +259,7 @@ h1 img {
 .content_contact {
     max-width: 100%;
     /* padding: 0 10px; */
-    margin: 230px auto 0 auto;
+    margin: 210px auto 0 auto;
     position: relative;
     /* box-sizing: border-box; */
 }
@@ -902,12 +901,12 @@ h1 img {
 @media screen and (max-width: 767px) {
 
     .dialog {
-        width: 350px;
+        width: 100%;
+        max-width: 320px;
         max-height: 87vh;
-        overflow-y: hidden;
+        overflow-y: auto;
         padding: 20px;
     }
-
 }
 
 /* できること・つくったもの・わたしのこと関係【PC】 */
@@ -1375,28 +1374,21 @@ h1 img {
     /* 横中央揃え */
 }
 
-.slider .small-slide img {
+.slider .slick-slide.small-slide {
+    transform: scale(0.7);
+}
+
+.slider .slick-center.small-slide {
     transform: scale(0.9);
 }
 
-/* ここでいろいろ試したけどわからない */
-/* .slider .small-slide a,
-.slider .small-slide1 a {
-    display: inline-block;
-} */
-/* imgのサイズに合わせる */
-
-/* .slider .small-slide a {
-    transform: scale(0.9);
-    display: block;
-} */
 
 /* 各つくったものページの部分【SP】 */
 @media screen and (max-width: 767px) {
 
     .works {
         display: block;
-        padding-top: 100px;
+        padding-top: 60px;
         /* ← pがabsoluteなのでこれで被りを防ぐ */
         margin-bottom: 40px;
         /* スライダーとの余白確保 */
@@ -1435,8 +1427,8 @@ h1 img {
         width: 100%;
     }
 
-    .slider .small-slide img {
-        transform: scale(0.8);
+    .slider .slick-slide.small-slide {
+        transform: scale(0.9);
     }
 
     .slider .small-slide2 img {
@@ -2184,13 +2176,11 @@ footer {
     all: unset;
     position: fixed;
     bottom: 150px;
-    right: 10px;
-    width: 60px;
-    height: 60px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
     background-color: #ffcc33;
-    /* border: #330000 solid 2px; */
     color: #330000;
-    font-size: 20px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -2202,18 +2192,18 @@ footer {
     text-align: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 1s ease, visibility 0.3s ease;
 }
 
 .back-to-top-button .arrow {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1;
 }
 
 .back-to-top-button .label {
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 2px;
-    line-height: 1;
+    line-height: 1.1;
     opacity: 0.8;
 }
 
@@ -2235,16 +2225,17 @@ footer {
     .back-to-top-button {
         left: auto;
         right: 10px;
-        /* ← スマホでは右下に表示 */
         bottom: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+    }
+
+    .back-to-top-button .arrow {
+        font-size: 14px;
     }
 
     .back-to-top-button .label {
-        font-size: 8px;
+        font-size: 11px;
     }
 }
 
