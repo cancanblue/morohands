@@ -208,15 +208,18 @@
 
             // 「最近、どう？」表示（pタグ全体）
             setTimeout(function () {
-                $('.main_visual_pc p').css('visibility', 'visible').hide().fadeIn(1000);
+                $('.main_visual_pc p').css('visibility', 'visible').hide().fadeIn(1500);
             }, 1000); // 1秒後
 
             // 画像切り替えと「困ってへん？」表示
             setTimeout(function () {
                 // $('.main_visual_pc img:eq(0)').fadeOut(1000); // 1枚目消える
-                $('.main_visual_pc img:eq(1)').fadeIn(1000);  // 2枚目現れる
-                $('.main_visual_pc span').fadeIn(1000);       // 「困ってへん？」出現
+                $('.main_visual_pc img:eq(1)').fadeIn(1500);  // 2枚目画像を1.5秒かけて表示
             }, 3000); // 3秒後（＝pが出た2秒後）
+            // 「困ってへん？」のテキストは1秒遅らせて出す（4秒後）
+            setTimeout(function () {
+                $('.main_visual_pc span').fadeIn(1500);// 1.5秒かけてふわっと表示
+            }, 4000);
         });
 
         $(document).ready(function () {
@@ -229,17 +232,19 @@
                 $('.main_visual_sp .vertical_1')
                     .css('visibility', 'visible')
                     .hide()
-                    .fadeIn(1000);
+                    .fadeIn(1500);
             }, 1000);
 
             // 画像2枚目と「困ってへん？」表示（3秒後）
             setTimeout(function () {
-                $('.main_visual_sp img:eq(1)').fadeIn(1000);
+                $('.main_visual_sp img:eq(1)').fadeIn(1500);
+            }, 3000);
+            setTimeout(function () {
                 $('.main_visual_sp .vertical_2')
                     .css('visibility', 'visible')
                     .hide()
-                    .fadeIn(1000);
-            }, 3000);
+                    .fadeIn(1500); // テキストは4秒後
+            }, 4000);
         });
 
 

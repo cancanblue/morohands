@@ -198,7 +198,7 @@ h1 img {
         /* 縦書き */
         position: absolute;
         font-size: 36px;
-        letter-spacing: normal;
+        letter-spacing: -0.2em;
     }
 
     .vertical_1 {
@@ -593,6 +593,11 @@ h1 img {
     /* 最初は非表示 */
     z-index: 0;
     /* 重なり順の制御 */
+}
+
+.about_top_left img:first-child {
+    display: block;
+    opacity: 1;
 }
 
 .about_top_left {
@@ -1289,7 +1294,7 @@ h1 img {
 }
 
 .modal-wrap {
-    max-width: 50vw;
+    max-width: 45vw;
     margin: 0 auto;
     height: 100%;
     overflow-y: scroll;
@@ -2148,6 +2153,7 @@ footer {
     .vertical_2 {
         font-size: 30px;
         font-family: "Noto Sans JP", sans-serif;
+        letter-spacing: 0.1em;
     }
 
     /* 各ページの一番上のh2タイトル */
