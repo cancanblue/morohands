@@ -1428,7 +1428,7 @@ h1 img {
 
     /* 上の画像のサイズ調節 */
     .works_img1 {
-        padding: 0 5%;
+        padding: 0 3%;
     }
 
     .works_img2 {
@@ -1453,6 +1453,11 @@ h1 img {
     .slick-prev,
     .slick-next {
         top: 40%;
+    }
+
+    /* WEBバナー下の画像が1つの場合 */
+    .works_sub1 img {
+        width: 80%;
     }
 
     /* WEBバナー下の画像が2つの場合 */
