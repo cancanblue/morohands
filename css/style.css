@@ -1243,12 +1243,12 @@ h1 img {
     cursor: pointer;
 }
 
+/* 上の画像のサイズ調節 */
 .works_img1 {
     padding: 0 10%;
     box-sizing: border-box;
 }
 
-/* 上の画像のサイズ調節 */
 .works_img2 {
     padding: 0 15%;
     box-sizing: border-box;
@@ -1423,6 +1423,16 @@ h1 img {
         font-size: 16px;
         text-align: left;
         margin: 0;
+    }
+
+
+    /* 上の画像のサイズ調節 */
+    .works_img1 {
+        padding: 0 5%;
+    }
+
+    .works_img2 {
+        padding: 0 10%;
     }
 
     .slider .slick-slide img,
@@ -2104,6 +2114,7 @@ footer {
     /* トップ・メインビジュアルの下テキスト */
     .main_copy {
         font-size: 17px;
+        transition: font-size 0.3s ease;
     }
 }
 
@@ -2113,7 +2124,7 @@ footer {
     display: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .br_500 {
         display: block;
         transition: font-size 0.3s ease;
@@ -2124,6 +2135,7 @@ footer {
     .thanks_text_right .sp_space {
         display: inline-block;
         padding-left: 30px;
+        transition: font-size 0.3s ease;
     }
 }
 
@@ -2134,6 +2146,7 @@ footer {
     .about_dream_text {
         font-size: 15px;
         line-height: 1.2;
+        transition: font-size 0.3s ease;
     }
 }
 
@@ -2159,21 +2172,25 @@ footer {
     /* 各ページの一番上のh2タイトル */
     .title_large {
         font-size: 40px;
+        transition: font-size 0.3s ease;
     }
 
     /* 各作品のページのh3タイトル */
     .works_title {
         font-size: 28px;
+        transition: font-size 0.3s ease;
     }
 
     /* スキルページのスキル・コーディングのところ */
     .skill_box_long {
         font-size: 15px;
+        transition: font-size 0.3s ease;
     }
 
     .contact_text_right,
     .contact_text_left {
         font-size: 21px;
+        transition: font-size 0.3s ease;
     }
 }
 

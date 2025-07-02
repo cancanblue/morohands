@@ -119,17 +119,17 @@
                 <li>
                     <img src="./images/skill_graphic.svg" alt="グラフィック">
                     <h3 class="title_small">グラフィック</h3>
-                    <P>ホームページで使われる画像処理やバナー作りなど、全般いろいろ。</P>
+                    <P>ホームページで使われる画像処理や<br class="br_500">バナー作りなど、全般いろいろ。</P>
                 </li>
                 <li>
                     <img src="./images/skill_webdesign.svg" alt="WEBデザイン">
                     <h3 class="title_small">WEBデザイン</h3>
-                    <P>あなたのイメージするホームページを「こんな感じ」と見える化します。</P>
+                    <P>あなたのイメージするホームページを<br class="br_500">「こんな感じ」と見える化します。</P>
                 </li>
                 <li>
                     <img src="./images/skill_coding.svg" alt="コーディングコーディング">
                     <h3 class="title_small">コーディング</h3>
-                    <P>イメージを実際のホームページに！一緒に作り上げていきます。</P>
+                    <P>イメージを実際のホームページに！<br class="br_500">一緒に作り上げていきます。</P>
                 </li>
             </ul>
             <button onclick="location.href='./skill.html'">
@@ -201,25 +201,29 @@
     <script>
         // メインビジュアルの画像変化
         $(document).ready(function () {
-            // 初期状態
+            //  初期状態の設定（ページ読み込み時）
             $('.main_visual_pc img:eq(1)').hide(); // 2枚目の画像は非表示
             $('.main_visual_pc p').css('visibility', 'hidden'); // 全体のテキスト非表示（高さ保持）
             $('.main_visual_pc span').hide(); // span（困ってへん？）だけ非表示
 
             // 「最近、どう？」表示（pタグ全体）
             setTimeout(function () {
-                $('.main_visual_pc p').css('visibility', 'visible').hide().fadeIn(1500);
-            }, 1000); // 1秒後
+                $('.main_visual_pc p').css('visibility', 'visible').hide().fadeIn(1500);// 1.5秒かけてふわっと表示
+                // ↑ ここから1.5秒かけて表示される → 合計で 0.8秒 + 1.5秒 = 2.3秒時点で表示完了
+            }, 800);
 
-            // 画像切り替えと「困ってへん？」表示
+            //  画像切り替え（2.5秒後）
             setTimeout(function () {
                 // $('.main_visual_pc img:eq(0)').fadeOut(1000); // 1枚目消える
-                $('.main_visual_pc img:eq(1)').fadeIn(1500);  // 2枚目画像を1.5秒かけて表示
-            }, 3000); // 3秒後（＝pが出た2秒後）
-            // 「困ってへん？」のテキストは1秒遅らせて出す（4秒後）
+                $('.main_visual_pc img:eq(1)').fadeIn(1500); // 1.5秒かけてふわっと表示 
+                // ↑ 表示完了は 2.5秒 + 1.5秒 = 4秒時点
+            }, 2500);
+
+            // 4. 「困ってへん？」の表示（3.5秒後）
             setTimeout(function () {
                 $('.main_visual_pc span').fadeIn(1500);// 1.5秒かけてふわっと表示
-            }, 4000);
+                // ↑ 表示完了は 3.5秒 + 1.5秒 = 5秒時点
+            }, 3500);
         });
 
         $(document).ready(function () {
@@ -233,18 +237,18 @@
                     .css('visibility', 'visible')
                     .hide()
                     .fadeIn(1500);
-            }, 1000);
+            }, 800);
 
             // 画像2枚目と「困ってへん？」表示（3秒後）
             setTimeout(function () {
                 $('.main_visual_sp img:eq(1)').fadeIn(1500);
-            }, 3000);
+            }, 2500);
             setTimeout(function () {
                 $('.main_visual_sp .vertical_2')
                     .css('visibility', 'visible')
                     .hide()
                     .fadeIn(1500); // テキストは4秒後
-            }, 4000);
+            }, 3500);
         });
 
 
