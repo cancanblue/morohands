@@ -83,3 +83,14 @@ button:hover {
 small {
     cursor: default;
 }
+
+@media screen and (max-width: 767px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+        overscroll-behavior: none;
+        margin: 0;
+        padding: 0;
+    }
+}
