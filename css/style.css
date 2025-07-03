@@ -54,7 +54,7 @@ h1 img {
 
 .pc_nav a:hover::after {
     /* visibility: visible; */
-    bottom: -4px;
+    bottom: -6px;
     /*アニメーションが止まる位置*/
     opacity: 1;
 }
