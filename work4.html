@@ -155,49 +155,62 @@
 
 
     <script>
-        // モーダルウィンドウの部分
         const modal = document.getElementById("modal");
         const modalImg = document.getElementById("modalImage");
         const closeBtn = document.querySelector(".close");
 
-        // スクロール無効化
-        function disableScroll() {
+        // モーダル内のみスクロール許可、それ以外はスクロール禁止
+        function disableScrollExceptModal() {
             document.body.style.overflow = "hidden";
             document.documentElement.style.overflow = "hidden";
-            document.addEventListener("touchmove", preventDefault, { passive: false });
+            document.addEventListener("touchmove", preventScrollOutsideModal, { passive: false });
         }
+
+        // スクロール許可に戻す
         function enableScroll() {
             document.body.style.overflow = "auto";
             document.documentElement.style.overflow = "auto";
-            document.removeEventListener("touchmove", preventDefault, { passive: false });
-        }
-        function preventDefault(e) {
-            e.preventDefault();
+            document.removeEventListener("touchmove", preventScrollOutsideModal, { passive: false });
         }
 
-        // モーダルを開く
+        // モーダル外をタッチした場合はスクロールを防ぐ
+        function preventScrollOutsideModal(e) {
+            const modalWrap = document.querySelector(".modal-wrap");
+            if (!modalWrap.contains(e.target)) {
+                e.preventDefault();
+            }
+        }
+
+        // モーダルを開く処理
         document.querySelectorAll(".open-modal").forEach(block => {
             block.addEventListener("click", () => {
                 const modalSrc = block.dataset.modal;
-                modalImg.src = modalSrc;
-                modal.style.display = "block";
-                disableScroll();
 
-                if (block.classList.contains('pc')) {
-                    modal.classList.add('pc');
-                }
+                // 画像読み込み完了後にモーダル表示（表示ラグ対策）
+                modalImg.onload = () => {
+                    modal.style.display = "block";
+                    disableScrollExceptModal();
+
+                    if (block.classList.contains('pc')) {
+                        modal.classList.add('pc');
+                    }
+                };
+
+                modalImg.src = modalSrc;
             });
         });
 
-        // モーダルを閉じる
+        // モーダルを閉じる処理（共通関数）
         function closeModal() {
             modal.style.display = "none";
             enableScroll();
             modal.classList.remove('pc');
         }
 
+        // 閉じるボタン
         closeBtn.addEventListener("click", closeModal);
 
+        // 背景（モーダルの黒い部分）をクリックしたら閉じる
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 closeModal();

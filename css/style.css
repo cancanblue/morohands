@@ -852,6 +852,18 @@ h1 img {
     right: 4%;
 }
 
+.scroll-lock {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
+.dialog {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .dialog {
     &::backdrop {
         background-color: rgba(0 0 0 / 0.8);

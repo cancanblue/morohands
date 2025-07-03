@@ -298,20 +298,40 @@
 
     <!-- <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">↑</button> -->
     <script>
-        // モーダルウィンドウ・開くボタンすべてにイベントを付ける
+        // モーダルを開くボタンすべてにイベントを付ける
         document.querySelectorAll('.open-button').forEach(button => {
             button.addEventListener('click', () => {
                 const targetId = button.dataset.target;
                 const modal = document.getElementById(targetId);
-                if (modal) modal.showModal();
+                if (modal) {
+                    modal.showModal();
+
+                    // 背景のスクロールを防ぐ
+                    document.body.classList.add('scroll-lock');
+                    document.documentElement.classList.add('scroll-lock');
+                }
             });
         });
 
-        // モーダルウィンドウ・閉じるボタンすべてにイベントを付ける
+        // モーダルを閉じるボタンすべてにイベントを付ける
         document.querySelectorAll('.close-button').forEach(button => {
             button.addEventListener('click', () => {
                 const modal = button.closest('dialog');
-                if (modal) modal.close();
+                if (modal) {
+                    modal.close();
+
+                    // 背景スクロールを元に戻す
+                    document.body.classList.remove('scroll-lock');
+                    document.documentElement.classList.remove('scroll-lock');
+                }
+            });
+        });
+
+        // モーダル外をクリックして閉じたときもスクロールを元に戻す
+        document.querySelectorAll('dialog').forEach(dialog => {
+            dialog.addEventListener('close', () => {
+                document.body.classList.remove('scroll-lock');
+                document.documentElement.classList.remove('scroll-lock');
             });
         });
 
