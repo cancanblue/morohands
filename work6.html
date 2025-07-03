@@ -159,7 +159,7 @@
         const modalImg = document.getElementById("modalImage");
         const closeBtn = document.querySelector(".close");
 
-        // スクロール禁止（ただし modal-wrap 内は許可）
+        // モーダル内のみスクロール許可、それ以外はスクロール禁止
         function disableScrollExceptModal() {
             document.body.style.overflow = "hidden";
             document.documentElement.style.overflow = "hidden";
@@ -173,7 +173,7 @@
             document.removeEventListener("touchmove", preventScrollOutsideModal, { passive: false });
         }
 
-        // モーダル外をタッチしたらスクロール無効
+        // モーダル外をタッチした場合はスクロールを防ぐ
         function preventScrollOutsideModal(e) {
             const modalWrap = document.querySelector(".modal-wrap");
             if (!modalWrap.contains(e.target)) {
@@ -181,28 +181,36 @@
             }
         }
 
-        // モーダルを開く
+        // モーダルを開く処理
         document.querySelectorAll(".open-modal").forEach(block => {
             block.addEventListener("click", () => {
                 const modalSrc = block.dataset.modal;
-                modalImg.src = modalSrc;
-                modal.style.display = "block";
-                disableScrollExceptModal();
 
-                if (block.classList.contains('pc')) {
-                    modal.classList.add('pc');
-                }
+                // 画像読み込み完了後にモーダル表示（表示ラグ対策）
+                modalImg.onload = () => {
+                    modal.style.display = "block";
+                    disableScrollExceptModal();
+
+                    if (block.classList.contains('pc')) {
+                        modal.classList.add('pc');
+                    }
+                };
+
+                modalImg.src = modalSrc;
             });
         });
 
-        // モーダルを閉じる処理
+        // モーダルを閉じる処理（共通関数）
         function closeModal() {
             modal.style.display = "none";
             enableScroll();
             modal.classList.remove('pc');
         }
 
+        // 閉じるボタン
         closeBtn.addEventListener("click", closeModal);
+
+        // 背景（モーダルの黒い部分）をクリックしたら閉じる
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 closeModal();
