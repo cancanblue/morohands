@@ -52,12 +52,26 @@ h1 img {
     transition: 0.2s;
 }
 
-.pc_nav a:hover::after {
-    /* visibility: visible; */
-    bottom: -6px;
-    /*アニメーションが止まる位置*/
-    opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+    .pc_nav a:hover::after {
+        bottom: -5px;
+        /*アニメーションが止まる位置*/
+        opacity: 1;
+    }
 }
+
+/* タッチのみの環境ではホバー装飾無効 */
+@media (hover: none) {
+    .pc_nav a:hover::after {
+        bottom: auto;
+        opacity: 0;
+    }
+}
+
+/* .pc_nav a:hover::after {
+    bottom: -6px;
+    opacity: 1;
+} */
 
 /* ヘッダー・メニュー【SP】 */
 @media screen and (max-width: 767px) {
