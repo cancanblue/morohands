@@ -60,7 +60,7 @@
             <img src="./images/work5.png" class="works_img1" alt="WEBバナー">
             <div class="works">
                 <h3 class="works_title">WEBデザイン</h3>
-                <p>「こう見せたい」を具現化します</p>
+                <p>「こう見せたい」を表現します</p>
             </div>
             <ul id="works_text">
                 <li>タイトル：美容院　ホームページ</li>
@@ -147,34 +147,52 @@
     </button>
 
     <script>
-        // モーダルウィンドウのPC版サイズ調節
+        // モーダルウィンドウの部分
         const modal = document.getElementById("modal");
         const modalImg = document.getElementById("modalImage");
         const closeBtn = document.querySelector(".close");
 
+        // スクロール無効化
+        function disableScroll() {
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+            document.addEventListener("touchmove", preventDefault, { passive: false });
+        }
+        function enableScroll() {
+            document.body.style.overflow = "auto";
+            document.documentElement.style.overflow = "auto";
+            document.removeEventListener("touchmove", preventDefault, { passive: false });
+        }
+        function preventDefault(e) {
+            e.preventDefault();
+        }
+
+        // モーダルを開く
         document.querySelectorAll(".open-modal").forEach(block => {
             block.addEventListener("click", () => {
                 const modalSrc = block.dataset.modal;
                 modalImg.src = modalSrc;
                 modal.style.display = "block";
-                document.body.style.overflowY = "hidden"
+                disableScroll();
+
                 if (block.classList.contains('pc')) {
-                    modal.classList.add('pc')
+                    modal.classList.add('pc');
                 }
             });
         });
 
-        closeBtn.addEventListener("click", () => {
+        // モーダルを閉じる
+        function closeModal() {
             modal.style.display = "none";
-            document.body.style.overflowY = "auto"
-            modal.classList.remove('pc')
-        });
+            enableScroll();
+            modal.classList.remove('pc');
+        }
+
+        closeBtn.addEventListener("click", closeModal);
 
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
-                modal.style.display = "none";
-                document.body.style.overflowY = "auto"
-                modal.classList.remove('pc')
+                closeModal();
             }
         });
     </script>
