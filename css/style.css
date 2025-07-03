@@ -852,26 +852,12 @@ h1 img {
     right: 4%;
 }
 
-/* .scroll-lock {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-}
-
-.dialog {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-} */
-
 .dialog {
     &::backdrop {
         background-color: rgba(0 0 0 / 0.8);
     }
 
-    width: 500px;
+    width: 510px;
     height: 100%;
     padding:15px;
     border: solid 2px hsl(45, 100%, 60%);
@@ -915,6 +901,22 @@ h1 img {
     pointer-events: none;
     /* 擬似要素がクリックを妨げないようにする */
     box-sizing: border-box;
+}
+
+/* 「わたしのこと」のモーダルウィンドウ【ipad】 */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .dialog {
+        padding-top: 50px;
+        width: 90%;
+        /* 幅を画面基準に */
+        max-width: 600px;
+        height: auto;
+        /* 高さは自動に */
+        max-height: 70vh;
+        /* 画面高の70%まで */
+        overflow-y: auto;
+        /* 中身が長くなればスクロール */
+    }
 }
 
 /* 「わたしのこと」のモーダルウィンドウ【SP】 */

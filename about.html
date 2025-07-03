@@ -337,6 +337,24 @@
             });
         });
 
+        // メッセージの丸画像のところ
+        $(function () {
+            $(window).on('scroll load', function () {
+                $('.fade-in').each(function () {
+                    var $this = $(this);
+                    if ($this.hasClass('show')) return; // すでに表示済みならスキップ
+
+                    var imgPos = $this.offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (scroll + windowHeight > imgPos + 50) {
+                        $this.addClass('show');
+                    }
+                });
+            });
+        });
+
         // 問い合わせフォームのテキスト
         document.addEventListener("DOMContentLoaded", function () {
             const textElement = document.getElementById("animatedText");
