@@ -298,58 +298,20 @@
 
     <!-- <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">↑</button> -->
     <script>
-        // モーダルを開くボタンすべてにイベントを付ける
+        // モーダルウィンドウ・開くボタンすべてにイベントを付ける
         document.querySelectorAll('.open-button').forEach(button => {
             button.addEventListener('click', () => {
                 const targetId = button.dataset.target;
                 const modal = document.getElementById(targetId);
-                if (modal) {
-                    modal.showModal();
-
-                    // 背景のスクロールを防ぐ（PC・スマホ両対応）
-                    document.body.classList.add('scroll-lock');
-                    document.documentElement.classList.add('scroll-lock');
-                }
+                if (modal) modal.showModal();
             });
         });
 
-        // モーダルを閉じるボタンすべてにイベントを付ける
+        // モーダルウィンドウ・閉じるボタンすべてにイベントを付ける
         document.querySelectorAll('.close-button').forEach(button => {
             button.addEventListener('click', () => {
                 const modal = button.closest('dialog');
-                if (modal) {
-                    modal.close();
-
-                    // 背景スクロールを元に戻す
-                    document.body.classList.remove('scroll-lock');
-                    document.documentElement.classList.remove('scroll-lock');
-                }
-            });
-        });
-
-        // モーダルを閉じたときにもスクロールを元に戻す（ESCキーなど対応）
-        document.querySelectorAll('dialog').forEach(dialog => {
-            dialog.addEventListener('close', () => {
-                document.body.classList.remove('scroll-lock');
-                document.documentElement.classList.remove('scroll-lock');
-            });
-        });
-
-        // メッセージの丸画像のところ
-        $(function () {
-            $(window).on('scroll load', function () {
-                $('.fade-in').each(function () {
-                    var $this = $(this);
-                    if ($this.hasClass('show')) return; // すでに表示済みならスキップ
-
-                    var imgPos = $this.offset().top;
-                    var scroll = $(window).scrollTop();
-                    var windowHeight = $(window).height();
-
-                    if (scroll + windowHeight > imgPos + 50) {
-                        $this.addClass('show');
-                    }
-                });
+                if (modal) modal.close();
             });
         });
 
