@@ -1298,7 +1298,10 @@ h1 img {
     max-width: 45vw;
     margin: 0 auto;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    /* ← ここが重要：縦スクロール許可 */
+    -webkit-overflow-scrolling: touch;
+    /* ← iOSでの滑らかスクロール */
 }
 
 .modal.pc .modal-wrap {
