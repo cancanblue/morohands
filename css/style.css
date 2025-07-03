@@ -2165,14 +2165,25 @@ footer {
     }
 }
 
+/* トップ・メインビジュアルのテキストのところ */
+.br_400 {
+    display: none;
+}
+
 @media screen and (max-width: 400px) {
 
-    /* トップ・メインの言葉のところ */
+    /* トップ・メインビジュアルの縦書きのところ */
     .vertical_1,
     .vertical_2 {
         font-size: 30px;
         font-family: "Noto Sans JP", sans-serif;
         letter-spacing: 0.1em;
+    }
+
+    /* トップ・メインビジュアルのテキストのところ */
+    .br_400 {
+        display: block;
+        transition: font-size 0.3s ease;
     }
 
     /* 各ページの一番上のh2タイトル */
