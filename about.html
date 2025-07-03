@@ -298,20 +298,29 @@
 
     <!-- <button id="backToTop" class="back-to-top-button" aria-label="ページの先頭へ戻る">↑</button> -->
     <script>
-        // モーダルウィンドウ・開くボタンすべてにイベントを付ける
+        // モーダルを開くときに背景スクロールを止める
         document.querySelectorAll('.open-button').forEach(button => {
             button.addEventListener('click', () => {
-                const targetId = button.dataset.target;
-                const modal = document.getElementById(targetId);
-                if (modal) modal.showModal();
+                const modal = document.getElementById(button.dataset.target);
+                if (!modal) return;
+                modal.showModal();
+                $('html, body').css('overflow', 'hidden');
             });
         });
 
-        // モーダルウィンドウ・閉じるボタンすべてにイベントを付ける
+        // モーダルを閉じるときに背景スクロールを戻す
         document.querySelectorAll('.close-button').forEach(button => {
             button.addEventListener('click', () => {
                 const modal = button.closest('dialog');
                 if (modal) modal.close();
+                $('html, body').css('overflow', '');
+            });
+        });
+
+        // showModal 以外で閉じられた場合（ESCや外側のクリック）対応
+        document.querySelectorAll('dialog').forEach(dialog => {
+            dialog.addEventListener('close', () => {
+                $('html, body').css('overflow', '');
             });
         });
 
