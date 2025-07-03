@@ -306,7 +306,7 @@
                 if (modal) {
                     modal.showModal();
 
-                    // 背景のスクロールを防ぐ
+                    // 背景のスクロールを防ぐ（PC・スマホ両対応）
                     document.body.classList.add('scroll-lock');
                     document.documentElement.classList.add('scroll-lock');
                 }
@@ -327,7 +327,7 @@
             });
         });
 
-        // モーダル外をクリックして閉じたときもスクロールを元に戻す
+        // モーダルを閉じたときにもスクロールを元に戻す（ESCキーなど対応）
         document.querySelectorAll('dialog').forEach(dialog => {
             dialog.addEventListener('close', () => {
                 document.body.classList.remove('scroll-lock');
