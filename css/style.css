@@ -845,7 +845,7 @@ h1 img {
 }
 
 /* 「わたしのこと」のモーダルウィンドウ【PC】 */
-/* .open-button,
+.open-button,
 .close-button {
     width: 20px;
     height: 20px;
@@ -858,39 +858,14 @@ h1 img {
     align-items: center;
     margin-bottom: 0;
     box-shadow: none;
-} */
-
-.open-button,
-.close-button {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #330000;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    /* 文字が見やすくなる */
     line-height: 1;
-    padding: 0;
-    border: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: none;
 }
 
 .open-button {
     position: absolute;
-    bottom: -19%;
-    right: 5%;
-}
-
-/* .open-button {
-    position: absolute;
     bottom: 6%;
     right: 4%;
-} */
+}
 
 .dialog {
     &::backdrop {
@@ -961,11 +936,6 @@ h1 img {
 
 /* 「わたしのこと」のモーダルウィンドウ【SP】 */
 @media screen and (max-width: 767px) {
-
-    .open-button {
-        bottom: -25%;
-        right: 6%;
-    }
 
     .dialog {
         width: 100%;
@@ -2000,7 +1970,8 @@ textarea::placeholder {
 }
 
 .form__input {
-    font-size: 16px;
+    /* font-size: 16px; */
+    color: #330000;
     border: none;
     background-color: #fef7d9;
     width: 90%;
@@ -2194,7 +2165,7 @@ footer {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 580px) {
     .br_500 {
         display: block;
         transition: font-size 0.3s ease;
@@ -2342,15 +2313,3 @@ footer {
         font-size: 11px;
     }
 }
-
-/* #animatedText span {
-    opacity: 0;
-    transform: translateY(5px);
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-#animatedText span.visible {
-    opacity: 1;
-    transform: translateY(0);
-} */
