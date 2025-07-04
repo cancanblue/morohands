@@ -849,6 +849,8 @@ h1 img {
 .close-button {
     width: 20px;
     height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     border-radius: 50%;
     background-color: #330000;
     color: white;
@@ -858,7 +860,13 @@ h1 img {
     align-items: center;
     margin-bottom: 0;
     box-shadow: none;
-    line-height: 1;
+    box-sizing: border-box;
+    font-size: 12px;
+    /* 小さめのアイコンフォント */
+    line-height: 20px;
+    /* 高さと合わせる */
+    padding: 0;
+    border: none;
 }
 
 .open-button {
